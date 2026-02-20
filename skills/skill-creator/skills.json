@@ -1,10 +1,18 @@
 {
-  "network": [],
-  "filesystem": {
-    "read": [
-      "**/*"
-    ],
-    "write": []
+  "name": "@tank/skill-creator",
+  "version": "1.0.0",
+  "description": "Create skills that extend AI agent capabilities with synthesized domain expertise from books, web research, and reusable resources.",
+  "permissions": {
+    "network": {
+      "outbound": []
+    },
+    "filesystem": {
+      "read": [
+        "**/*"
+      ],
+      "write": []
+    },
+    "subprocess": false
   },
-  "subprocess": false
+  "repository": "https://github.com/tankpkg/skills"
 }
