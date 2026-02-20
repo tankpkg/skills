@@ -1,0 +1,14 @@
+{
+  "name": "@tank/slack",
+  "version": "1.0.0",
+  "description": "Send messages, manage channels, search conversations, and automate workflows in Slack via the Web API.",
+  "permissions": {
+    "network": {
+      "outbound": ["slack.com", "*.slack.com"]
+    },
+    "filesystem": {
+      "read": ["./**"]
+    },
+    "subprocess": false
+  }
+}

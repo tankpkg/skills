@@ -1,0 +1,14 @@
+{
+  "name": "@tank/google-calendar",
+  "version": "1.0.0",
+  "description": "Create, query, update, and manage Google Calendar events, schedules, and availability.",
+  "permissions": {
+    "network": {
+      "outbound": ["*.googleapis.com", "accounts.google.com", "oauth2.googleapis.com"]
+    },
+    "filesystem": {
+      "read": ["./**"]
+    },
+    "subprocess": false
+  }
+}
