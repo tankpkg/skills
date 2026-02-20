@@ -1,0 +1,10 @@
+{
+  "network": [],
+  "filesystem": {
+    "read": [
+      "**/*"
+    ],
+    "write": []
+  },
+  "subprocess": false
+}
