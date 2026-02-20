@@ -1,6 +1,6 @@
 {
   "name": "@tank/planning",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "File-based planning for complex tasks. Creates persistent task_plan.md, findings.md, and progress.md as working memory on disk.",
   "permissions": {
     "network": {

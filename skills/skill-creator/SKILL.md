@@ -73,7 +73,7 @@ skill-name/
    - `obra/superpowers` (debugging, tdd, planning)
 3. **Collect examples** — Concrete queries skill should handle
 4. **Research books** — 6-10 authoritative books (2018+)
-5. **Download** — Use annas-archive-ebooks skill, one at a time
+5. **Acquire books** — Purchase or access through library/publisher
 6. **Extract frameworks** — Use `look_at` on books. Save to `/tmp/`
 7. **Quality gate** — 4+ books extracted before Phase 2
 

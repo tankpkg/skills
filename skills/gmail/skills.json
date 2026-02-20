@@ -1,6 +1,6 @@
 {
   "name": "@tank/gmail",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Send, read, search, label, and manage email through the Gmail API with thread-aware operations.",
   "permissions": {
     "network": {

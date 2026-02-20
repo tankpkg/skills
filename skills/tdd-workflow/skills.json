@@ -1,6 +1,6 @@
 {
   "name": "@tank/tdd-workflow",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Test-Driven Development workflow: RED-GREEN-REFACTOR cycle, the three laws of TDD, and practical patterns for writing tests first.",
   "permissions": {
     "network": {

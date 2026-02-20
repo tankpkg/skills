@@ -1,6 +1,6 @@
 {
   "name": "@tank/skill-creator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create skills that extend AI agent capabilities with synthesized domain expertise from books, web research, and reusable resources.",
   "permissions": {
     "network": {

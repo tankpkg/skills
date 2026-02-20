@@ -1,6 +1,6 @@
 {
   "name": "@tank/notion",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Query, create, and update Notion pages, databases, and blocks through the Notion API.",
   "permissions": {
     "network": {

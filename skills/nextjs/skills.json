@@ -1,6 +1,6 @@
 {
   "name": "@tank/nextjs",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Next.js with TypeScript and Tailwind best practices for App Router, Server Components, data fetching, and performance optimization.",
   "permissions": {
     "network": {

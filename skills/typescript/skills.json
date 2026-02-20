@@ -1,6 +1,6 @@
 {
   "name": "@tank/typescript",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TypeScript coding standards covering type system usage, naming conventions, code organization, error handling, and design patterns.",
   "permissions": {
     "network": {

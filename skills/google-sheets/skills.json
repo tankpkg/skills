@@ -1,6 +1,6 @@
 {
   "name": "@tank/google-sheets",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Read, write, format, and analyze spreadsheet data through the Google Sheets API.",
   "permissions": {
     "network": {

@@ -1,6 +1,6 @@
 {
   "name": "@tank/systematic-debugging",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Systematic debugging methodology: root cause investigation, pattern analysis, hypothesis testing, and the 3-strike error protocol.",
   "permissions": {
     "network": {

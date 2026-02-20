@@ -1,6 +1,6 @@
 {
   "name": "@tank/node-express",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Node.js and Express.js best practices for API design, middleware, authentication, database integration, and deployment.",
   "permissions": {
     "network": {

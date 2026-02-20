@@ -1,0 +1,20 @@
+{
+  "name": "@tank/token-redaction",
+  "version": "0.0.3",
+  "description": "Detect and redact API tokens, keys, bearer values, and JWTs in local OpenCode SQLite session stores with backup and verification.",
+  "permissions": {
+    "network": {
+      "outbound": []
+    },
+    "filesystem": {
+      "read": [
+        "**/*"
+      ],
+      "write": [
+        "**/*"
+      ]
+    },
+    "subprocess": true
+  },
+  "repository": "https://github.com/tankpkg/skills"
+}

@@ -80,12 +80,13 @@ Find 6-10 authoritative books:
 
 Get user approval before downloading.
 
-### Step 5 — Search Anna's Archive
+### Step 5 — Acquire Sources Legally
 
-Use annas-archive-ebooks skill:
+Use legal/public channels:
 
 ```bash
-python3 @annas.py search "Book Title Author" --format pdf --limit 5
+# Open-access / official source discovery
+python3 research_sources.py find "Book Title Author" --source open-library
 ```
 
 Verify correct edition:
@@ -96,24 +97,19 @@ Verify correct edition:
 
 Prefer PDF, fall back to EPUB.
 
-### Step 6 — Download Books
+### Step 6 — Collect Materials
 
-**CRITICAL: One at a time with 15-20s gaps.**
-
-LibGen CDN aggressively throttles concurrent downloads. Parallel = IP ban.
+**CRITICAL: One at a time to preserve quality and metadata tracking.**
 
 ```bash
-# Correct: sequential
-python3 @annas.py download <md5_1> --output /tmp/skill-books/
-# wait 15-20s
-python3 @annas.py download <md5_2> --output /tmp/skill-books/
+# Correct: sequential collection from legal sources
+python3 research_sources.py fetch <source-id-1> --output /tmp/skill-books/
+# review metadata
+python3 research_sources.py fetch <source-id-2> --output /tmp/skill-books/
 ```
 
-Some downloads fail due to throttling. Normal — proceed with what you have.
-4-6 books sufficient for quality skill.
-
-**Browser fallback**: If free download fails, use Playwriter MCP to click
-via real Chrome. LibGen blocks Python/curl TLS fingerprints.
+Some sources may be unavailable. Proceed with what you can access legally.
+4-6 high-quality books/resources are sufficient for a strong skill.
 
 ### Step 7 — Extract Frameworks (MANDATORY)
 
@@ -307,7 +303,7 @@ CONTEXT:
 - Scratch files: /tmp/{skill-name}-research/
 ```
 
-Use `category="writing"` and `load_skills=["annas-archive-ebooks"]`.
+Use `category="writing"` with domain-relevant skills.
 
 **Fallback**: If delegated writes fail, write sequentially yourself.
 

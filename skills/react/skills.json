@@ -1,6 +1,6 @@
 {
   "name": "@tank/react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React best practices for functional components, hooks, state management, performance optimization, testing, and accessibility.",
   "permissions": {
     "network": {

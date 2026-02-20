@@ -1,6 +1,6 @@
 {
   "name": "@tank/security-review",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Security best practices review for web applications. Language and framework-specific guidance for Python, JavaScript, TypeScript, and Go.",
   "permissions": {
     "network": {

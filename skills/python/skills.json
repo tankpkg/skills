@@ -1,6 +1,6 @@
 {
   "name": "@tank/python",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Python best practices for project structure, type hints, Flask development, SQLAlchemy, testing with pytest, and security.",
   "permissions": {
     "network": {

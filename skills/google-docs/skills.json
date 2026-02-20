@@ -1,6 +1,6 @@
 {
   "name": "@tank/google-docs",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Create, edit, format, and collaborate on Google Docs via the Google Docs API and Google Drive API.",
   "permissions": {
     "network": {

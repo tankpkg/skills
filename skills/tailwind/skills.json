@@ -1,6 +1,6 @@
 {
   "name": "@tank/tailwind",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tailwind CSS best practices for utility-first styling, responsive design, component patterns, dark mode, and performance.",
   "permissions": {
     "network": {

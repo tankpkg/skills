@@ -1,6 +1,6 @@
 {
   "name": "@tank/clean-code",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Language-agnostic clean code guidelines: naming, single responsibility, DRY, encapsulation, testing, and continuous refactoring.",
   "permissions": {
     "network": {
