@@ -3,8 +3,16 @@
   "version": "1.0.0",
   "description": "Security best practices review for web applications. Language and framework-specific guidance for Python, JavaScript, TypeScript, and Go.",
   "permissions": {
-    "network": { "outbound": [] },
-    "filesystem": { "read": ["**/*"], "write": [] },
+    "network": {
+      "outbound": []
+    },
+    "filesystem": {
+      "read": [
+        "**/*"
+      ],
+      "write": []
+    },
     "subprocess": false
-  }
+  },
+  "repository": "https://github.com/tankpkg/skills"
 }

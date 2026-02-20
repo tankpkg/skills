@@ -3,8 +3,16 @@
   "version": "1.0.0",
   "description": "Systematic debugging methodology: root cause investigation, pattern analysis, hypothesis testing, and the 3-strike error protocol.",
   "permissions": {
-    "network": { "outbound": [] },
-    "filesystem": { "read": ["**/*"], "write": [] },
+    "network": {
+      "outbound": []
+    },
+    "filesystem": {
+      "read": [
+        "**/*"
+      ],
+      "write": []
+    },
     "subprocess": false
-  }
+  },
+  "repository": "https://github.com/tankpkg/skills"
 }

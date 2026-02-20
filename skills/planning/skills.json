@@ -3,8 +3,20 @@
   "version": "1.0.0",
   "description": "File-based planning for complex tasks. Creates persistent task_plan.md, findings.md, and progress.md as working memory on disk.",
   "permissions": {
-    "network": { "outbound": [] },
-    "filesystem": { "read": ["**/*"], "write": ["task_plan.md", "findings.md", "progress.md"] },
+    "network": {
+      "outbound": []
+    },
+    "filesystem": {
+      "read": [
+        "**/*"
+      ],
+      "write": [
+        "task_plan.md",
+        "findings.md",
+        "progress.md"
+      ]
+    },
     "subprocess": false
-  }
+  },
+  "repository": "https://github.com/tankpkg/skills"
 }

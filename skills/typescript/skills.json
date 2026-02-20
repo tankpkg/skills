@@ -3,8 +3,16 @@
   "version": "1.0.0",
   "description": "TypeScript coding standards covering type system usage, naming conventions, code organization, error handling, and design patterns.",
   "permissions": {
-    "network": { "outbound": [] },
-    "filesystem": { "read": ["**/*"], "write": [] },
+    "network": {
+      "outbound": []
+    },
+    "filesystem": {
+      "read": [
+        "**/*"
+      ],
+      "write": []
+    },
     "subprocess": false
-  }
+  },
+  "repository": "https://github.com/tankpkg/skills"
 }

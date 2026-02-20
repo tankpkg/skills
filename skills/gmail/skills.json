@@ -4,11 +4,18 @@
   "description": "Send, read, search, label, and manage email through the Gmail API with thread-aware operations.",
   "permissions": {
     "network": {
-      "outbound": ["*.googleapis.com", "accounts.google.com", "oauth2.googleapis.com"]
+      "outbound": [
+        "*.googleapis.com",
+        "accounts.google.com",
+        "oauth2.googleapis.com"
+      ]
     },
     "filesystem": {
-      "read": ["./**"]
+      "read": [
+        "./**"
+      ]
     },
     "subprocess": false
-  }
+  },
+  "repository": "https://github.com/tankpkg/skills"
 }

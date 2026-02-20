@@ -4,11 +4,17 @@
   "description": "Send messages, manage channels, search conversations, and automate workflows in Slack via the Web API.",
   "permissions": {
     "network": {
-      "outbound": ["slack.com", "*.slack.com"]
+      "outbound": [
+        "slack.com",
+        "*.slack.com"
+      ]
     },
     "filesystem": {
-      "read": ["./**"]
+      "read": [
+        "./**"
+      ]
     },
     "subprocess": false
-  }
+  },
+  "repository": "https://github.com/tankpkg/skills"
 }

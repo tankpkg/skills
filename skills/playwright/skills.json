@@ -3,8 +3,20 @@
   "version": "1.0.0",
   "description": "Browser automation and testing with Playwright. Auto-detect dev servers, write test scripts, take screenshots, validate UX.",
   "permissions": {
-    "network": { "outbound": ["localhost:*"] },
-    "filesystem": { "read": ["**/*"], "write": ["/tmp/playwright-test-*"] },
+    "network": {
+      "outbound": [
+        "localhost:*"
+      ]
+    },
+    "filesystem": {
+      "read": [
+        "**/*"
+      ],
+      "write": [
+        "/tmp/playwright-test-*"
+      ]
+    },
     "subprocess": true
-  }
+  },
+  "repository": "https://github.com/tankpkg/skills"
 }

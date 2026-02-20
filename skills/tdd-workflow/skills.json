@@ -3,8 +3,16 @@
   "version": "1.0.0",
   "description": "Test-Driven Development workflow: RED-GREEN-REFACTOR cycle, the three laws of TDD, and practical patterns for writing tests first.",
   "permissions": {
-    "network": { "outbound": [] },
-    "filesystem": { "read": ["**/*"], "write": [] },
+    "network": {
+      "outbound": []
+    },
+    "filesystem": {
+      "read": [
+        "**/*"
+      ],
+      "write": []
+    },
     "subprocess": true
-  }
+  },
+  "repository": "https://github.com/tankpkg/skills"
 }

@@ -4,11 +4,16 @@
   "description": "Query, create, and update Notion pages, databases, and blocks through the Notion API.",
   "permissions": {
     "network": {
-      "outbound": ["api.notion.com"]
+      "outbound": [
+        "api.notion.com"
+      ]
     },
     "filesystem": {
-      "read": ["./**"]
+      "read": [
+        "./**"
+      ]
     },
     "subprocess": false
-  }
+  },
+  "repository": "https://github.com/tankpkg/skills"
 }

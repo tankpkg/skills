@@ -4,11 +4,18 @@
   "description": "Create, edit, format, and collaborate on Google Docs via the Google Docs API and Google Drive API.",
   "permissions": {
     "network": {
-      "outbound": ["*.googleapis.com", "accounts.google.com", "oauth2.googleapis.com"]
+      "outbound": [
+        "*.googleapis.com",
+        "accounts.google.com",
+        "oauth2.googleapis.com"
+      ]
     },
     "filesystem": {
-      "read": ["./**"]
+      "read": [
+        "./**"
+      ]
     },
     "subprocess": false
-  }
+  },
+  "repository": "https://github.com/tankpkg/skills"
 }

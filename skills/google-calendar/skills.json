@@ -4,11 +4,18 @@
   "description": "Create, query, update, and manage Google Calendar events, schedules, and availability.",
   "permissions": {
     "network": {
-      "outbound": ["*.googleapis.com", "accounts.google.com", "oauth2.googleapis.com"]
+      "outbound": [
+        "*.googleapis.com",
+        "accounts.google.com",
+        "oauth2.googleapis.com"
+      ]
     },
     "filesystem": {
-      "read": ["./**"]
+      "read": [
+        "./**"
+      ]
     },
     "subprocess": false
-  }
+  },
+  "repository": "https://github.com/tankpkg/skills"
 }
