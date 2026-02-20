@@ -1,0 +1,23 @@
+{
+  "name": "@tank/tank-package-publisher",
+  "version": "1.0.0",
+  "description": "Manage, validate, and publish skills to Tank with dry-run-first workflow, manifest checks, and release troubleshooting.",
+  "permissions": {
+    "network": {
+      "outbound": [
+        "tankpkg.dev",
+        "api.tankpkg.dev"
+      ]
+    },
+    "filesystem": {
+      "read": [
+        "**/*"
+      ],
+      "write": [
+        "**/*"
+      ]
+    },
+    "subprocess": true
+  },
+  "repository": "https://github.com/tankpkg/skills"
+}

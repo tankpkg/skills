@@ -1,0 +1,68 @@
+# Tank Ignore File
+#
+# Patterns in this file are excluded from Tank packages.
+# Similar to .gitignore syntax.
+#
+# Place this file in your skill directory root.
+
+# Dependencies
+node_modules/
+
+# Version control
+.git/
+.gitignore
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+.nuxt/
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Cache
+.cache/
+.parcel-cache/
+.turbo/
+
+# Development files
+*.test.ts
+*.test.js
+*.spec.ts
+*.spec.js
+__tests__/
+__mocks__/
+
+# Documentation (optional - uncomment to exclude)
+# docs/
+# *.md
+# !SKILL.md
+
+# CI/CD (optional - uncomment to exclude)
+# .github/
+# .gitlab-ci.yml
+# .travis.yml

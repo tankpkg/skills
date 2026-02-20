@@ -1,0 +1,16 @@
+{
+  "name": "@org/your-skill-name",
+  "version": "1.0.0",
+  "description": "One-sentence description of what this skill does. Include trigger keywords for discoverability.",
+  "permissions": {
+    "network": {
+      "outbound": []
+    },
+    "filesystem": {
+      "read": [],
+      "write": []
+    },
+    "subprocess": false
+  },
+  "repository": "https://github.com/org/repo"
+}
