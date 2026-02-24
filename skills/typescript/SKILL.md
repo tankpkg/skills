@@ -1,52 +1,155 @@
-# TypeScript Best Practices
+---
+name: "@tank/typescript"
+description: "Advanced TypeScript patterns for type-safe applications. Triggers: typescript, TS, type, interface, generic, union, discriminated union, branded type, utility type, conditional type, mapped type, template literal, infer, satisfies, as const, tsconfig, strict mode, type guard, type narrowing, type-safe."
+---
+# TypeScript
 
-## Type System
-- Prefer interfaces over types for object definitions
-- Use type for unions, intersections, and mapped types
-- Avoid using `any`, prefer `unknown` for unknown types
-- Use strict TypeScript configuration
-- Leverage TypeScript's built-in utility types
-- Use generics for reusable type patterns
+## When to Use
+- Design APIs that enforce invariants at compile time, not in runtime comments.
+- Model complex state machines, data flows, or protocol responses.
+- Refactor JavaScript into TypeScript with minimal runtime change.
+- Convert runtime validation into inferred types (schema-first).
 
-## Naming Conventions
-- Use PascalCase for type names and interfaces
-- Use camelCase for variables and functions
-- Use UPPER_CASE for constants
-- Use descriptive names with auxiliary verbs (e.g., isLoading, hasError)
-- Prefix interfaces for React props with 'Props' (e.g., ButtonProps)
+## Core Philosophy
+- Make illegal states unrepresentable.
+- Narrow, don't assert.
+- Prefer type inference with guardrails.
 
-## Code Organization
-- Keep type definitions close to where they're used
-- Export types and interfaces from dedicated type files when shared
-- Use barrel exports (index.ts) for organizing exports
-- Place shared types in a `types` directory
-- Co-locate component props with their components
+## Workflow
+1. Identify domain invariants and impossible states.
+2. Choose the smallest surface area for public types.
+3. Model states with discriminated unions and explicit tags.
+4. Add guards (type predicates or assertion functions) at boundaries.
+5. Let inference flow through helpers; use `satisfies` to lock shape.
+6. Add exhaustive checks to every switch on tagged unions.
+7. Encode runtime validation with schema libraries or hand-rolled guards.
 
-## Functions
-- Use explicit return types for public functions
-- Use arrow functions for callbacks and methods
-- Implement proper error handling with custom error types
-- Use function overloads for complex type scenarios
-- Prefer async/await over Promises
+## Type Selection Decision Tree
+- Need declaration merging or class implementation contracts? Use `interface`.
+- Need unions, intersections, or mapped/conditional types? Use `type`.
+- Need runtime values with stable string keys? Prefer const objects.
+- Need closed set of values consumed at runtime? Use const object + union.
+- Need bitwise or numeric enums interop? Use `enum` only if required.
+- Need a flexible "dictionary" and stable key type? Use `Record`.
+- Need literal inference from object values? Use `as const`.
 
-## Best Practices
-- Enable strict mode in tsconfig.json
-- Use readonly for immutable properties
-- Leverage discriminated unions for type safety
-- Use type guards for runtime type checking
-- Implement proper null checking
-- Avoid type assertions unless necessary
+```ts
+const status = { idle: "idle", loading: "loading" } as const;
+type Status = typeof status[keyof typeof status];
+interface FetchState { status: Status }
+```
 
-## Error Handling
-- Create custom error types for domain-specific errors
-- Use Result types for operations that can fail
-- Implement proper error boundaries
-- Use try-catch blocks with typed catch clauses
-- Handle Promise rejections properly
+## Utility Types Quick Reference
+| Utility | Purpose | Example |
+| --- | --- | --- |
+| `Pick<T, K>` | Select keys | `Pick<User, "id" | "email">` |
+| `Omit<T, K>` | Drop keys | `Omit<User, "password">` |
+| `Partial<T>` | Optional props | `Partial<Config>` |
+| `Required<T>` | All required | `Required<Config>` |
+| `Record<K, V>` | Map keys to type | `Record<Role, Permission[]>` |
+| `Exclude<T, U>` | Remove union members | `Exclude<Status, "idle">` |
+| `Extract<T, U>` | Keep union members | `Extract<Event, { type: "click" }>` |
+| `ReturnType<F>` | Function return | `ReturnType<typeof makeUser>` |
+| `Parameters<F>` | Function params tuple | `Parameters<typeof fetcher>` |
+| `Awaited<T>` | Promise unwrapping | `Awaited<ReturnType<typeof api>>` |
 
-## Patterns
-- Use the Builder pattern for complex object creation
-- Implement the Repository pattern for data access
-- Use the Factory pattern for object creation
-- Leverage dependency injection
-- Use the Module pattern for encapsulation
+## Strict Config Recommendations
+| Flag | Why it matters | Typical impact |
+| --- | --- | --- |
+| `strict` | Enables the full safety suite | Forces explicit modeling |
+| `noImplicitAny` | Prevents untyped gaps | Forces types on inputs |
+| `strictNullChecks` | Eliminates null surprises | Requires null-safe flow |
+| `noUncheckedIndexedAccess` | Safer indexing | Adds `| undefined` |
+| `exactOptionalPropertyTypes` | Distinguish `undefined` from missing | Tightens APIs |
+| `useUnknownInCatchVariables` | Makes catch safe | Forces narrowing |
+| `noPropertyAccessFromIndexSignature` | Disallow dot access on index signatures | Promotes safe access |
+| `noImplicitOverride` | Safer overrides | Avoids shadowed behavior |
+
+```ts
+type User = { email?: string };
+const email = (u: User) => u.email ?? "unknown";
+```
+
+## Anti-Patterns and Fixes
+| Anti-pattern | Why it hurts | Safer alternative |
+| --- | --- | --- |
+| `as any` for speed | Hides invariants | Wrap boundary with a guard |
+| `@ts-ignore` | Silences errors globally | Use `@ts-expect-error` with reason |
+| Unnecessary type assertion | Masks missing checks | Use type predicate |
+| Enum for string literals | Extra runtime + reverse map | `as const` object + union |
+| Non-exhaustive switch | Missed states | `never` exhaustiveness |
+| `string` for identifiers | Allows mixing IDs | Branded types |
+| Implicit `any` in callbacks | Silent widening | Explicit generic constraints |
+| Overloaded unions without guards | Ambiguous intent | Tagged unions with `type` |
+
+```ts
+type UserId = string & { readonly brand: "UserId" };
+const isUserId = (v: string): v is UserId => v.startsWith("usr_");
+```
+
+## Output Expectations
+- Provide concrete, type-safe designs and example code.
+- Explain tradeoffs when multiple type designs are plausible.
+- Favor narrow input types and broader output types.
+- Show incremental migration paths when upgrading JS.
+
+## Reference Index
+- `skills/typescript/references/type-patterns.md`
+- `skills/typescript/references/practical-patterns.md`
+- `skills/typescript/references/config-and-tooling.md`
+
+## Operating Rules
+- Prefer `unknown` at boundaries and narrow with guards.
+- Use `satisfies` to lock object shape without losing inference.
+- Keep type-level logic readable; move complexity into helpers.
+- If a type is hard to name, the runtime model is likely wrong.
+
+```ts
+const routes = {
+  user: "/users/:id",
+  order: "/orders/:id"
+} satisfies Record<string, `/${string}`>;
+type RouteKey = keyof typeof routes;
+```
+
+## Response Style
+- Start with the core invariant or constraint, then types.
+- Include a minimal runnable example when possible.
+- Provide a migration note when strict flags are required.
+
+## Fast Checks
+- Is every union tagged for safe narrowing?
+- Are index accesses accounted for (`noUncheckedIndexedAccess`)?
+- Do public types avoid `any` and avoid unsafe assertions?
+- Are all switches exhaustive with `never`?
+
+```ts
+type Event = { type: "start" } | { type: "stop" };
+const handle = (e: Event) => {
+  switch (e.type) {
+    case "start": return 1;
+    case "stop": return 2;
+    default: {
+      const _exhaustive: never = e;
+      return _exhaustive;
+    }
+  }
+};
+```
+
+## Common Deliverables
+- Tagged unions and guard functions.
+- Strict tsconfig tuning with rationale.
+- Type-safe APIs for events, repositories, and results.
+- Refactoring guidance for migrating JS to TS.
+
+## Do and Don't
+- Do: encode invariants with branded and tagged types.
+- Do: keep helper types small and named.
+- Don't: widen literals without a reason.
+- Don't: return `any` from shared utilities.
+
+```ts
+const makeId = <B extends string>(s: string, b: B) =>
+  s as string & { readonly brand: B };
+```

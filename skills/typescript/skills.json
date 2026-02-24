@@ -1,17 +1,10 @@
 {
   "name": "@tank/typescript",
-  "version": "1.0.1",
-  "description": "TypeScript coding standards covering type system usage, naming conventions, code organization, error handling, and design patterns.",
+  "version": "2.0.0",
+  "description": "Advanced TypeScript patterns for type-safe applications. Covers discriminated unions, branded types, exhaustive checking, conditional types, mapped types, template literal types, type-safe error handling (Result pattern), generic constraints, declaration merging, module augmentation, and strict tsconfig recipes. Synthesized from TypeScript official docs, Effective TypeScript (Vanderkam), and production patterns. Triggers: typescript, TS, type, interface, generic, union, discriminated union, branded type, utility type, conditional type, mapped type, template literal, infer, satisfies, as const, tsconfig, strict mode, type guard, type narrowing, type-safe.",
   "permissions": {
-    "network": {
-      "outbound": []
-    },
-    "filesystem": {
-      "read": [
-        "**/*"
-      ],
-      "write": []
-    },
+    "network": { "outbound": [] },
+    "filesystem": { "read": ["**/*"], "write": [] },
     "subprocess": false
   },
   "repository": "https://github.com/tankpkg/skills"
