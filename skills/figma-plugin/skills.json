@@ -1,0 +1,10 @@
+{
+  "name": "figma-plugin",
+  "description": "Expert guidance for building Figma plugins — architecture, Plugin API\n(nodes, styles, variables, components, text), UI development (iframe,\nReact, message passing), Dev Mode codegen, publishing, and monetization.\n\nTrigger phrases: \"Figma plugin\", \"create a Figma plugin\", \"build Figma plugin\",\n\"Figma Plugin API\", \"figma.showUI\", \"figma.createRectangle\", \"plugin manifest\",\n\"manifest.json Figma\", \"Figma codegen\", \"Figma Dev Mode plugin\",\n\"Figma widget vs plugin\", \"Figma plugin UI\", \"Figma plugin TypeScript\",\n\"postMessage Figma\", \"figma.closePlugin\", \"Figma plugin publish\",\n\"design tokens Figma\", \"Figma variables API\", \"Figma plugin sandbox\",\n\"Figma auto-layout API\", \"Figma font loading\", \"loadFontAsync\",\n\"Figma node types\", \"SceneNode\", \"FrameNode\", \"TextNode\",\n\"figma.clientStorage\", \"setPluginData\", \"Figma plugin testing\",\n\"Figma plugin monetization\", \"Figma plugin payments\"",
+  "network": [],
+  "filesystem": {
+    "read": ["**/*"],
+    "write": ["**/*"]
+  },
+  "subprocess": true
+}
