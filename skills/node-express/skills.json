@@ -1,17 +1,10 @@
 {
   "name": "@tank/node-express",
-  "version": "1.0.2",
-  "description": "Node.js and Express.js best practices for API design, middleware, authentication, database integration, and deployment.",
+  "version": "2.0.0",
+  "description": "Production-grade Node.js and Express.js patterns for API servers. Covers middleware chains, async error handling, request validation with Zod, authentication (JWT, session), database integration (Prisma, Drizzle), graceful shutdown, structured logging, and deployment. Synthesized from Node.js official docs, Express best practices, and production patterns. Triggers: node, express, API server, middleware, REST API, backend, endpoint, route handler, authentication, JWT, rate limiting, error handling, request validation, graceful shutdown, Node.js, Express.js.",
   "permissions": {
-    "network": {
-      "outbound": []
-    },
-    "filesystem": {
-      "read": [
-        "**/*"
-      ],
-      "write": []
-    },
+    "network": { "outbound": [] },
+    "filesystem": { "read": ["**/*"], "write": [] },
     "subprocess": false
   },
   "repository": "https://github.com/tankpkg/skills"
