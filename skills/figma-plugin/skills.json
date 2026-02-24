@@ -1,6 +1,6 @@
 {
   "name": "@tank/figma-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Expert guidance for building Figma plugins — architecture, Plugin API (nodes, styles, variables, components, text), UI development (iframe, React, message passing), Dev Mode codegen, publishing, and monetization.",
   "permissions": {
     "network": {
