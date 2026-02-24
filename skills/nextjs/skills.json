@@ -1,7 +1,7 @@
 {
   "name": "@tank/nextjs",
   "version": "2.0.0",
-  "description": "Expert Next.js 14/15 patterns for the App Router. Covers Server Components vs Client Components (decision tree), data fetching (server actions, route handlers, RSC async), caching hierarchy (request memoization, data cache, full route cache, router cache), streaming SSR with Suspense, parallel and intercepting routes, middleware patterns, and deployment optimization. Synthesized from Next.js official docs, Vercel patterns, and production architectures. Triggers: nextjs, next.js, app router, server component, client component, server action, route handler, middleware, SSR, SSG, ISR, caching, revalidation, streaming, suspense, parallel routes, intercepting routes, next/image, metadata, layout.",
+  "description": "Next.js 14/15 App Router patterns. Covers Server vs Client Components, data fetching (server actions, route handlers), caching hierarchy, streaming SSR, parallel/intercepting routes, middleware, and deployment. Triggers: nextjs, next.js, app router, server component, client component, server action, route handler, middleware, SSR, SSG, ISR, caching, revalidation, streaming, suspense, parallel routes, intercepting routes, next/image, metadata, layout.",
   "permissions": {
     "network": { "outbound": [] },
     "filesystem": { "read": ["**/*"], "write": [] },

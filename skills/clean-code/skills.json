@@ -1,7 +1,7 @@
 {
   "name": "@tank/clean-code",
   "version": "2.0.0",
-  "description": "Actionable clean code patterns with code smell detection and refactoring recipes. Covers naming conventions (with before/after examples), function design (parameter objects, command-query separation), code smell identification (long method, feature envy, primitive obsession, data clumps), refactoring patterns (extract method, replace conditional with polymorphism, introduce parameter object), complexity management (cyclomatic complexity thresholds, cognitive complexity), and the SOLID principles applied practically. Synthesized from Clean Code (Martin), Refactoring (Fowler), A Philosophy of Software Design (Ousterhout). Triggers: clean code, refactor, code smell, naming, function design, SOLID, single responsibility, DRY, complexity, readability, maintainability, technical debt, code review, code quality, extract method, long method, magic number.",
+  "description": "Clean code patterns with smell detection and refactoring recipes. Covers naming, function design, code smells, refactoring patterns, complexity management, and SOLID principles. Triggers: clean code, refactor, code smell, naming, function design, SOLID, single responsibility, DRY, complexity, readability, maintainability, technical debt, code review, code quality, extract method, long method, magic number.",
   "permissions": {
     "network": { "outbound": [] },
     "filesystem": { "read": ["**/*"], "write": [] },

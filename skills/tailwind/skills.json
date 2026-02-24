@@ -1,7 +1,7 @@
 {
   "name": "@tank/tailwind",
   "version": "2.0.0",
-  "description": "Production Tailwind CSS patterns and component recipes. Covers responsive design (mobile-first breakpoints, container queries), component recipes (buttons, cards, forms, navigation, modals), dark mode strategies, custom theme configuration, plugin development, animation utilities, arbitrary values, and CSS variable integration. Includes shadcn/ui patterns. Synthesized from Tailwind CSS official docs, Refactoring UI (Wathan/Schoger), and community patterns. Triggers: tailwind, CSS, utility class, responsive, dark mode, theme, plugin, animation, shadow, gradient, flex, grid, container query, breakpoint, hover, focus, arbitrary value, shadcn, component styling, design tokens.",
+  "description": "Tailwind CSS patterns and component recipes. Covers responsive design, dark mode, theme configuration, plugins, animations, and CSS variables. Includes shadcn/ui patterns. Triggers: tailwind, CSS, utility class, responsive, dark mode, theme, plugin, animation, shadow, gradient, flex, grid, container query, breakpoint, hover, focus, arbitrary value, shadcn, component styling, design tokens.",
   "permissions": {
     "network": { "outbound": [] },
     "filesystem": { "read": ["**/*"], "write": [] },

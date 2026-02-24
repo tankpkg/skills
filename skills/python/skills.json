@@ -1,7 +1,7 @@
 {
   "name": "@tank/python",
   "version": "2.0.0",
-  "description": "Modern Python (3.10+) patterns for production applications. Covers type hints (TypeVar, Protocol, ParamSpec), dataclasses and attrs, match/case patterns, async/await (asyncio, TaskGroup, structured concurrency), project structure (src-layout, pyproject.toml, uv), testing with pytest (fixtures, parametrize, mocking), error handling patterns, Pydantic v2 for validation, and packaging. Synthesized from Python official docs, Fluent Python (Ramalho), Robust Python (Viafore), and community patterns. Triggers: python, type hint, dataclass, async, asyncio, pytest, pydantic, match case, protocol, packaging, pyproject.toml, uv, pip, virtual environment, decorator, context manager, generator, comprehension, f-string, walrus operator.",
+  "description": "Modern Python (3.10+) patterns. Covers type hints, dataclasses, match/case, async/await, project structure, pytest, error handling, Pydantic v2, and packaging. Triggers: python, type hint, dataclass, async, asyncio, pytest, pydantic, match case, protocol, packaging, pyproject.toml, uv, pip, virtual environment, decorator, context manager, generator, comprehension, f-string, walrus operator.",
   "permissions": {
     "network": { "outbound": [] },
     "filesystem": { "read": ["**/*"], "write": [] },

@@ -1,7 +1,7 @@
 {
   "name": "@tank/security-review",
   "version": "2.0.0",
-  "description": "Security best practices review for web applications with language-specific guidance. Covers OWASP Top 10, input validation, authentication (JWT, session, OAuth), authorization (RBAC, ABAC), XSS prevention, CSRF protection, SQL injection, secrets management, dependency auditing, and secure headers. Includes framework-specific references for JavaScript/TypeScript, Python, and Node.js backends. Synthesized from OWASP guidelines, CWE database, and production security patterns. Triggers: security, vulnerability, XSS, CSRF, SQL injection, authentication, authorization, OWASP, input validation, sanitization, encryption, secrets, JWT, session, CORS, CSP, security headers, dependency audit, security review, penetration testing.",
+  "description": "Security best practices for web apps. Covers OWASP Top 10, input validation, authentication, authorization, XSS/CSRF prevention, SQL injection, secrets, and secure headers. Framework-specific guidance for JS/TS, Python, Node.js. Triggers: security, vulnerability, XSS, CSRF, SQL injection, authentication, authorization, OWASP, input validation, sanitization, encryption, secrets, JWT, session, CORS, CSP, security headers, dependency audit, security review, penetration testing.",
   "permissions": {
     "network": { "outbound": [] },
     "filesystem": { "read": ["**/*"], "write": [] },

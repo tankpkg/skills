@@ -1,7 +1,7 @@
 {
   "name": "@tank/tdd-workflow",
   "version": "2.0.0",
-  "description": "Test-Driven Development methodology: RED-GREEN-REFACTOR cycle, the three laws of TDD, test-first patterns, and practical workflows for AI-assisted development. Covers when to TDD vs when not to, test doubles (mocks, stubs, spies), testing pyramids, property-based testing, and mutation testing. Synthesized from Test-Driven Development by Example (Beck), Unit Testing Principles (Khorikov), Growing Object-Oriented Software (Freeman/Pryce). Triggers: TDD, test-driven development, red green refactor, test first, unit test, failing test, test double, mock, stub, spy, test pyramid, property-based testing, mutation testing, test coverage, testing strategy, write tests.",
+  "description": "Test-Driven Development: RED-GREEN-REFACTOR cycle, three laws of TDD, test-first patterns, and practical workflows. Covers test doubles, testing pyramids, property-based testing, and mutation testing. Triggers: TDD, test-driven development, red green refactor, test first, unit test, failing test, test double, mock, stub, spy, test pyramid, property-based testing, mutation testing, test coverage, testing strategy, write tests.",
   "permissions": {
     "network": { "outbound": [] },
     "filesystem": { "read": ["**/*"], "write": [] },

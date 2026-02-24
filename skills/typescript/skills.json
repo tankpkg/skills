@@ -1,7 +1,7 @@
 {
   "name": "@tank/typescript",
   "version": "2.0.0",
-  "description": "Advanced TypeScript patterns for type-safe applications. Covers discriminated unions, branded types, exhaustive checking, conditional types, mapped types, template literal types, type-safe error handling (Result pattern), generic constraints, declaration merging, module augmentation, and strict tsconfig recipes. Synthesized from TypeScript official docs, Effective TypeScript (Vanderkam), and production patterns. Triggers: typescript, TS, type, interface, generic, union, discriminated union, branded type, utility type, conditional type, mapped type, template literal, infer, satisfies, as const, tsconfig, strict mode, type guard, type narrowing, type-safe.",
+  "description": "TypeScript patterns for type-safe apps. Covers discriminated unions, branded types, conditional types, mapped types, template literals, type-safe error handling, generics, and strict tsconfig. Triggers: typescript, TS, type, interface, generic, union, discriminated union, branded type, utility type, conditional type, mapped type, template literal, infer, satisfies, as const, tsconfig, strict mode, type guard, type narrowing, type-safe.",
   "permissions": {
     "network": { "outbound": [] },
     "filesystem": { "read": ["**/*"], "write": [] },
