@@ -1,160 +1,170 @@
 ---
 name: "@tank/clean-code"
-description: "Actionable clean code patterns with code smell detection and refactoring recipes. Covers naming conventions, function design, SOLID practices, code smell identification, refactoring patterns, complexity management, and readability. Triggers: clean code, refactor, code smell, naming, function design, SOLID, single responsibility, DRY, complexity, readability, maintainability, technical debt, code review, code quality, extract method, long method, magic number, feature envy, data clumps, primitive obsession, command query separation."
+description: |
+  Reusable, modular, performant, readable code — guided by KISS, SOLID, and
+  pragmatic design. Covers code smell detection, refactoring recipes, function
+  design, KISS/YAGNI decision frameworks, modularity (coupling, cohesion,
+  boundaries), performance-aware patterns, and readability through cognitive
+  load management. Synthesizes Martin (Clean Code), Ousterhout (A Philosophy
+  of Software Design), Fowler (Refactoring), Metz (Practical OOD), Hickey
+  (Simple Made Easy), Beck (Implementation Patterns), grugbrain.dev.
+
+  Trigger phrases: "clean code", "refactor", "code smell", "code review",
+  "code quality", "KISS", "keep it simple", "SOLID", "single responsibility",
+  "DRY", "YAGNI", "over-engineered", "too complex", "simplify", "modularity",
+  "coupling", "cohesion", "dependency", "reusable", "modular", "performance",
+  "readability", "cognitive load", "naming", "function design", "extract method",
+  "technical debt", "maintainability", "is this too abstract", "should I abstract",
+  "N+1", "data structure"
 ---
 
-# Clean Code Skill
+# Clean Code
 
-Use this skill when you need concrete refactoring steps, smell detection heuristics, or naming and function design guidance with examples.
+Write reusable, modular code with performance and readability in mind.
 
 ## Core Philosophy
-- Code is read 10x more than written. Optimize for readers first.
-- Make the change easy, then make the easy change. Small steps beat big rewrites.
-- Depth over width. Prefer fewer, deeper modules with simple interfaces.
+
+1. **Code is read 10x more than written.** Optimize for the reader.
+2. **Complexity is the apex predator.** Fight it at every level — function, module, system.
+3. **Make the change easy, then make the easy change.** Small steps beat big rewrites.
+4. **Don't build what you don't need.** Defer abstraction until the 3rd occurrence.
+5. **Profile before optimizing, but design without obvious perf disasters.**
+
+## Working Mode
+
+1. Identify the smallest unit of change.
+2. Confirm tests exist or add a characterization test.
+3. Apply one refactoring at a time.
+4. Re-run tests and reassess complexity.
+
+## Quick Smell -> Fix Mapping
+
+| Smell | Fix |
+| --- | --- |
+| Long method (>20 lines) | Extract Method |
+| Magic number | Extract Constant |
+| Feature envy | Move Method |
+| Primitive obsession | Introduce Value Object |
+| Data clumps | Introduce Parameter Object |
+| Switch on type codes | Replace Conditional with Polymorphism |
+| God class (>200 lines) | Extract Class |
+| Pass-through methods | Collapse layers |
+| Over-abstraction | Inline, delete unused generics |
+
+## KISS Decision Framework
+
+Before adding abstraction, answer these in order:
+
+1. Have I seen this pattern 3+ times? NO -> Stop. Wait.
+2. Is the interface simpler than the implementation? NO -> Shallow module, don't abstract.
+3. Can I explain it to a junior in 5 minutes? NO -> Too complex.
+4. Will it survive 3+ requirement changes? NO -> Premature.
+5. All YES -> Abstract it.
+
+**Shallow Module Score:** `(params + exceptions + concepts) / lines of logic`
+- Score > 0.5 -> likely over-engineered.
+
+**YAGNI Checklist — before building ANY feature:**
+- Is this a CURRENT, validated requirement?
+- Has a user explicitly requested it?
+- Will it ship in the next release?
+- Is cost of delay > cost of building?
+- Any NO -> Defer.
+
+See `references/kiss-and-simplicity.md` for full decision trees.
+
+## SOLID Quick Reference
+
+| Principle | One-liner | Signal it's violated |
+| --- | --- | --- |
+| Single Responsibility | One reason to change | Class description needs "and" |
+| Open/Closed | Extend without modifying | Every new type requires editing existing code |
+| Liskov Substitution | Subtypes replace base types | Subclass throws "not supported" |
+| Interface Segregation | Small, focused interfaces | Implementors stub methods with `throw` |
+| Dependency Inversion | Depend on abstractions | Business logic imports DB/HTTP libraries |
+
+## Modularity Checklist
+
+| Check | Target |
+| --- | --- |
+| Coupling | Data coupling (lowest). Eliminate content/common coupling. |
+| Cohesion | Functional (highest). Refactor coincidental/logical. |
+| Depth ratio | `functionality / public API > 10` |
+| Dependency direction | Inward toward business rules |
+| Composition vs inheritance | Default to composition. Inherit only for true "is-a" with >80% behavior reuse. |
+
+See `references/modularity-and-design.md` for coupling/cohesion hierarchies.
+
+## Performance Awareness
+
+Do NOT optimize prematurely. DO avoid obvious disasters:
+
+| Anti-Pattern | Signal | Fix |
+| --- | --- | --- |
+| N+1 fetches | Loop contains query/API call | Batch load or eager load |
+| Nested loops on same data | O(n^2) with large n | Convert inner to hash set |
+| Allocation in hot loop | Object creation per iteration | Hoist, reuse, or pool |
+| String concat in loop | Immutable rebuilds | StringBuilder or join() |
+| Computing unused results | Expensive call before guard | Move guards first |
+| No TTL on cache | Stale data forever | Always set TTL |
+
+See `references/performance-awareness.md` for data structure selection and caching decisions.
+
+## Readability Rules
+
+| Rule | Target |
+| --- | --- |
+| Function length | ≤ 20 lines |
+| Parameters | ≤ 3 (use parameter object above) |
+| Nesting depth | ≤ 3 levels (use guard clauses) |
+| Cyclomatic complexity | ≤ 10 |
+| Abstraction consistency | All statements at same zoom level |
+
+**The 3am Test:** Would you understand this at 3am during an outage?
+
+See `references/readability-patterns.md` for cognitive load scoring and review checklist.
 
 ## Naming Rules
+
 | Element | Rule | Example |
 | --- | --- | --- |
-| Variable | Noun | `userCount`, not `countUsers` |
-| Function | Verb | `calculateTotal()`, not `totalCalculation()` |
-| Boolean | `is/has/can` prefix | `isActive`, not `active` |
-| Class | Noun | `InvoicePrinter`, not `PrintInvoice` |
-| Constant | UPPER_SNAKE | `MAX_RETRIES`, not `maxRetries` |
-
-Naming example:
-```ts
-// Before
-const d = new Date();
-function user(name: string) { return name.trim().toLowerCase(); }
-const a = true;
-
-// After
-const createdAt = new Date();
-function normalizeUserName(name: string) { return name.trim().toLowerCase(); }
-const isActive = true;
-```
+| Variable | Noun | `userCount` |
+| Function | Verb | `calculateTotal()` |
+| Boolean | `is/has/can` prefix | `isActive` |
+| Class | Noun | `InvoicePrinter` |
+| Constant | UPPER_SNAKE | `MAX_RETRIES` |
 
 ## Function Design Rules
+
 | Rule | Target |
 | --- | --- |
 | Max parameters | 3 (introduce parameter object when >3) |
 | Max lines | 20-30 (exceptions: table lookups, state machines) |
 | Max nesting depth | 2 |
-| Cyclomatic complexity | 10 |
+| CQS | Queries return data; commands change state. Never both. |
 
-Function example:
-```ts
-// Before
-function price(userId: string, tax: number, discount: number, promo: string) {
-  if (!userId) throw new Error("Missing user");
-  if (tax < 0) throw new Error("Invalid tax");
-  return base(userId) + tax - discount + promoValue(promo);
-}
-
-// After
-type PricingParams = { userId: string; tax: number; discount: number; promo: string };
-function calculatePrice(params: PricingParams) {
-  if (!params.userId) throw new Error("Missing user");
-  if (params.tax < 0) throw new Error("Invalid tax");
-  return base(params.userId) + params.tax - params.discount + promoValue(params.promo);
-}
-```
-
-## Quick Smell -> Fix Mapping
-| Smell | Fix |
-| --- | --- |
-| Long method | Extract Method |
-| Magic number | Extract Constant |
-| Feature envy | Move Method |
-| Primitive obsession | Introduce Value Object |
-| Data clumps | Introduce Parameter Object |
-| Switch statements | Replace Conditional with Polymorphism |
-| God class | Extract Class |
-
-## SOLID Principles (with examples)
-
-Single Responsibility: a module should have one reason to change.
-```ts
-// Before
-class ReportService {
-  generate(data: string) { return data.toUpperCase(); }
-  save(report: string) { localStorage.setItem("report", report); }
-}
-
-// After
-class ReportFormatter { format(data: string) { return data.toUpperCase(); } }
-class ReportStore { save(report: string) { localStorage.setItem("report", report); } }
-```
-
-Open/Closed: extend behavior without modifying existing code.
-```ts
-// Before
-function shippingCost(type: string) {
-  if (type === "ground") return 5;
-  if (type === "air") return 15;
-  return 0;
-}
-
-// After
-interface Shipping { cost(): number; }
-class Ground implements Shipping { cost() { return 5; } }
-class Air implements Shipping { cost() { return 15; } }
-function shippingCost(method: Shipping) { return method.cost(); }
-```
-
-Liskov Substitution: subtypes must be usable wherever the base type is expected.
-```ts
-// Before
-class Rectangle { constructor(public w: number, public h: number) {} area() { return this.w * this.h; } }
-class Square extends Rectangle { set w(v: number) { this.h = v; } }
-
-// After
-interface Shape { area(): number; }
-class Rectangle implements Shape { constructor(public w: number, public h: number) {} area() { return this.w * this.h; } }
-class Square implements Shape { constructor(public size: number) {} area() { return this.size * this.size; } }
-```
-
-Interface Segregation: keep interfaces small and focused.
-```ts
-// Before
-interface Printer { print(): void; scan(): void; fax(): void; }
-class ReceiptPrinter implements Printer { print() {} scan() { throw new Error("N/A"); } fax() { throw new Error("N/A"); } }
-
-// After
-interface Printable { print(): void; }
-class ReceiptPrinter implements Printable { print() {} }
-```
-
-Dependency Inversion: depend on abstractions, not concretions.
-```ts
-// Before
-class OrderService { private db = new SqlDb(); save(order: Order) { this.db.insert(order); } }
-
-// After
-interface OrderStore { insert(order: Order): void; }
-class OrderService { constructor(private store: OrderStore) {} save(order: Order) { this.store.insert(order); } }
-```
+See `references/function-design.md` for parameter design, CQS, and complexity details.
 
 ## Anti-Patterns
-| Anti-pattern | Why it hurts | Remedy |
-| --- | --- | --- |
-| Long parameter lists | Hard to read and order dependent | Introduce Parameter Object |
-| Flag arguments | Mixed responsibilities | Split into two functions |
-| Shotgun surgery | Many files change for one behavior | Consolidate responsibility |
-| Lava flow | Dead code accumulates | Delete or archive |
-| Magic numbers | Meaning hidden | Extract Constant |
-| Speculative generality | Unused abstractions | Inline or delete |
-| God class | Too many responsibilities | Extract Class |
-| Comments as deodorant | Mask bad code | Refactor, then comment why |
-| Overloaded names | Ambiguous meaning | Rename to reveal intent |
 
-## Working Mode
-1. Identify the smallest unit of change.
-2. Confirm tests or add a characterization test.
-3. Apply one refactoring at a time.
-4. Re-run tests and reassess complexity.
+| Anti-pattern | Remedy |
+| --- | --- |
+| Long parameter lists | Introduce Parameter Object |
+| Flag arguments | Split into two functions |
+| Shotgun surgery | Consolidate responsibility |
+| Speculative generality | Inline or delete unused abstractions |
+| Comments as deodorant | Refactor, then comment why |
+| Premature generics | Concrete until 3rd type |
+| Configurable everything | Build for current need, add config when requested |
 
 ## Reference Index
-- `skills/clean-code/references/code-smells.md`
-- `skills/clean-code/references/refactoring-recipes.md`
-- `skills/clean-code/references/function-design.md`
+
+| File | Contents |
+| --- | --- |
+| `references/code-smells.md` | 10 code smells with detection heuristics, before/after examples, refactoring recipes |
+| `references/refactoring-recipes.md` | Step-by-step refactoring patterns: Extract Method, Introduce Parameter Object, Replace Conditional, etc. |
+| `references/function-design.md` | Naming, parameters, CQS, function length, cyclomatic/cognitive complexity, depth vs width |
+| `references/kiss-and-simplicity.md` | KISS principle, over-engineering detection, YAGNI, complexity budgets, simplicity vs DRY |
+| `references/modularity-and-design.md` | Coupling types, cohesion spectrum, module boundaries, dependency direction, composition vs inheritance |
+| `references/performance-awareness.md` | Data structure selection, N+1, unnecessary computation, memory, caching, algorithmic awareness |
+| `references/readability-patterns.md` | Cognitive load, visual structure, self-documenting code, narrative flow, review checklist |

@@ -1,7 +1,7 @@
 {
   "name": "@tank/clean-code",
-  "version": "2.0.0",
-  "description": "Clean code patterns with smell detection and refactoring recipes. Covers naming, function design, code smells, refactoring patterns, complexity management, and SOLID principles. Triggers: clean code, refactor, code smell, naming, function design, SOLID, single responsibility, DRY, complexity, readability, maintainability, technical debt, code review, code quality, extract method, long method, magic number.",
+  "version": "3.0.0",
+  "description": "Reusable, modular, performant, readable code via KISS, SOLID, and pragmatic design. Covers code smells, refactoring, KISS/YAGNI, modularity (coupling, cohesion), performance (N+1, data structures, caching), readability (cognitive load). Synthesizes Martin, Ousterhout, Fowler, Metz, Hickey, Beck. Triggers: clean code, refactor, code smell, code review, KISS, SOLID, DRY, YAGNI, over-engineered, simplify, coupling, cohesion, reusable, performance, readability, cognitive load, technical debt, N+1.",
   "permissions": {
     "network": { "outbound": [] },
     "filesystem": { "read": ["**/*"], "write": [] },
