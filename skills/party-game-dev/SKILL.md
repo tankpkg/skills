@@ -1,5 +1,5 @@
 ---
-name: party-game-dev
+name: "@tank/party-game-dev"
 description: |
   Build real-time multiplayer party games (Jackbox-style) with full-stack
   TypeScript. Covers host-player architecture (TV + phones), Socket.IO
