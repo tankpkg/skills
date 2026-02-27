@@ -213,22 +213,55 @@ const props = withDefaults(defineProps<Props>(), {
 ```
 
 ### Angular Implementation
-- Decorators: Use `@Input()` for props and `@Output()` for events.
-- Template:
+
+**Critical: Host Element Convention.** Angular wraps every component template in an invisible
+host element (`<app-button>`). This element defaults to `display: inline`, which breaks
+flex chains, grid layouts, and height propagation. React has no equivalent — JSX renders
+directly into the parent DOM.
+
+**Every Angular component MUST declare `host: { class: 'contents' }` by default.** This makes
+the host element invisible to CSS layout, so children participate directly in the parent's
+layout context — identical to React's rendering model.
+
+Exceptions:
+- **Page-level components** that fill the viewport: `host: { class: 'flex flex-col h-full' }`
+- **Components needing host visual styling** (background, border): `host: { class: 'block bg-white p-4' }`
+
 ```typescript
 @Component({
   selector: 'app-button',
   standalone: true,
+  host: { class: 'contents' },  // Host invisible to layout
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <button [class]="'btn ' + variant" [disabled]="disabled">
-      <ng-content></ng-content>
+    <button [class]="'btn ' + variant()" [disabled]="disabled()">
+      <ng-content />
     </button>
   `
 })
 export class ButtonComponent {
-  @Input() variant: string = 'primary';
-  @Input() disabled: boolean = false;
+  variant = input<string>('primary');
+  disabled = input<boolean>(false);
 }
+```
+
+```typescript
+// Page component — host IS the layout root
+@Component({
+  selector: 'app-dashboard-page',
+  standalone: true,
+  host: { class: 'flex flex-col h-full' },  // Page fills viewport
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `
+    <div class="flex-1 overflow-y-auto p-6">
+      <!-- scrollable content -->
+    </div>
+    <footer class="shrink-0 border-t p-4">
+      <!-- fixed footer -->
+    </footer>
+  `
+})
+export class DashboardPage {}
 ```
 
 ### Tailwind CSS Strategies
