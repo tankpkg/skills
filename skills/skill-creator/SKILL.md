@@ -28,6 +28,9 @@ knowledge from authoritative books, web research, and reusable resources.
    Skills from real examples outperform skills from abstract knowledge.
 6. **Save research to disk** — Skill creation generates massive context.
    Save to `/tmp/{skill-name}-research/` immediately.
+7. **Write your own work** — Read existing skills freely to learn what
+   works (structure, length, patterns). But always write your own content
+   from your own research. Never copy-paste text from other skills.
 
 ## Skill Anatomy
 
@@ -67,7 +70,9 @@ skill-name/
 ### Phase 1: Scope and Research
 
 1. **Define scope** — Ask: domain, tasks, triggers, style reference
-2. **Study ecosystem** — Browse skills.sh leaderboard. Study top skills:
+2. **Study ecosystem** — Browse skills.sh leaderboard. Read top skills to
+   learn what works — structure, triggers, file layout. Use them as
+   inspiration but write everything yourself from your own research.
    - `anthropics/skills` (frontend-design, skill-creator)
    - `vercel-labs/agent-skills` (react, web-design)
    - `obra/superpowers` (debugging, tdd, planning)

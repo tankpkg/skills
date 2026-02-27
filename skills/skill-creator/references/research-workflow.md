@@ -39,6 +39,11 @@ Study existing skills before writing. Prevents reinventing patterns.
 
 **Study local repo**: Read 2-3 existing skills in same domain.
 
+**Read freely, write your own.** The point of ecosystem study is to learn
+what structural patterns work — file count, line lengths, trigger phrasing,
+disclosure levels. Note what you like. Then close the tabs and write your
+skill from your own research. Never copy-paste content from other skills.
+
 Do NOT skip this step.
 
 ### Step 3 — Collect Concrete Examples
@@ -291,6 +296,8 @@ MUST DO:
 MUST NOT DO:
 - Write primarily from web research — books are foundation
 - Copy text directly from books
+- Copy text or frameworks from other skills — use them for
+  structural inspiration only, write your own content
 - Include YAML frontmatter
 - Exceed 450 lines or under 250
 - Write generic advice

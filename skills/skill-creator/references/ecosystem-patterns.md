@@ -2,6 +2,10 @@
 
 Sources: skills.sh leaderboard analysis, tank-skills repo patterns, Agent Skills specification
 
+**These patterns are for structural inspiration.** Learn what file counts,
+line lengths, and disclosure patterns work well. Then write your own content
+from your own research — never copy-paste from other skills.
+
 ## skills.sh Leaderboard (2025)
 
 ### Top Skills by Installs

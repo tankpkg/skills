@@ -128,7 +128,9 @@ with Author B's examples into unified reference.
 If section only explains concept without framework/table/procedure, revise.
 
 **No verbatim copying**: Synthesize into own frameworks. Direct quotes only
-for short, attributed phrases that capture concepts uniquely.
+for short, attributed phrases that capture concepts uniquely. This applies
+to both books AND other skills — read them for inspiration, but always
+write your own content.
 
 ### Scope Summary
 
@@ -198,7 +200,8 @@ Read BEFORE writing. Do not rely on memory.
 - [ ] No YAML frontmatter
 - [ ] No emoji
 - [ ] No content overlap
-- [ ] No verbatim copying
+- [ ] No verbatim copying (from books or other skills)
+- [ ] Content written from own research, not lifted from existing skills
 - [ ] Professional tone, imperative form
 - [ ] Tables for frameworks/comparisons
 
