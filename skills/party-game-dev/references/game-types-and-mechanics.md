@@ -375,4 +375,54 @@ interface GameState {
 }
 ```
 
+## Content Pipeline
+
+Content-driven games (trivia, prompt-response, fill-in-the-blank) need a structured way to manage prompts, questions, and challenges. Without a pipeline, content ends up hardcoded in source files, making it impossible to add new packs without redeploying.
+
+### Prompt Pack Format
+
+Store content in JSON files following a consistent schema:
+
+```
+/content/packs/
+  general-knowledge.json
+  pop-culture-2024.json
+  family-friendly.json
+```
+
+Each pack contains prompts with category, difficulty, family-safe flag, and locale. See `assets/prompt-pack.schema.ts` for the full TypeScript schema, validation, and CLI validator.
+
+### Build-Time Validation
+
+Validate all prompt packs in CI to catch issues before deploy:
+```bash
+npx tsx assets/prompt-pack.schema.ts --validate ./content/packs/*.json
+```
+
+This checks for: duplicate IDs, empty text, invalid categories, missing required fields.
+
+### Runtime Loading
+
+```typescript
+import { loadPack, drawPrompts } from "./prompt-pack.schema";
+
+const pack = loadPack("./content/packs/general-knowledge.json");
+const roundPrompts = drawPrompts(pack, 8, {
+  difficulty: "medium",
+  familySafeOnly: room.settings.familyMode,
+});
+```
+
+### Content Expansion Without Redeploy
+
+For games that ship new prompt packs regularly:
+1. Store packs in a CDN or object storage (S3, R2).
+2. On game start, fetch the manifest of available packs.
+3. VIP selects which pack(s) to play from.
+4. Cache packs in memory after first fetch — they're immutable.
+
+### Localization
+
+Each prompt includes a `locale` field. When loading, filter by the room's locale setting. For multi-language support, create separate pack files per locale rather than embedding translations inline.
+
 By following these blueprints, developers can ensure that the core loops of their party games are robust, engaging, and technically sound while allowing for creative variation in theme and presentation.

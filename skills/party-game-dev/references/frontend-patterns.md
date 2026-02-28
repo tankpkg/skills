@@ -314,3 +314,94 @@ const SynchronizedTimer = ({ expiresAt }: { expiresAt: number }) => {
 
 ### Audio Stack
 - **Howler.js**: Robust audio management for cross-browser support. Use it to handle spatial audio if the Host screen has a surround sound setup. Preload assets during the lobby phase to avoid lag during gameplay.
+
+### iOS Audio Unlock
+
+iOS Safari suspends the `AudioContext` until a user gesture triggers it. Without explicit unlock logic, all game sounds silently fail on iPhones and iPads. The unlock must happen before any `Howl.play()` call.
+
+**The Problem:**
+1. iOS creates `AudioContext` in `suspended` state.
+2. Calling `Howl.play()` while suspended queues the sound but never plays it.
+3. Users hear nothing — no error is thrown.
+
+**The Fix — gesture-triggered resume:**
+
+```tsx
+useEffect(() => {
+  const unlock = () => {
+    const ctx = Howler.ctx;
+    if (ctx?.state === "suspended") {
+      ctx.resume();
+    }
+  };
+  document.addEventListener("touchstart", unlock, { capture: true, once: true });
+  document.addEventListener("click", unlock, { capture: true, once: true });
+  return () => {
+    document.removeEventListener("touchstart", unlock);
+    document.removeEventListener("click", unlock);
+  };
+}, []);
+```
+
+Key rules:
+- Listen on `touchstart` AND `click` — some browsers need one, some the other.
+- Use `capture: true` so the handler fires before any `stopPropagation()` in child components.
+- Trigger on the FIRST user interaction (lobby join button tap is ideal).
+- Check `Howler.ctx.state` — desktop browsers are usually already `"running"`.
+
+See `assets/audio-unlock-howler.tsx` for a complete React provider with unlock + preloading + progress tracking.
+
+### Asset Preloading
+
+Load all game audio and images during the lobby phase, not during gameplay. Players are waiting anyway — use that dead time.
+
+**Audio preloading:**
+```tsx
+const manifest = {
+  buzzer: "/sounds/buzzer.mp3",
+  correct: "/sounds/correct.mp3",
+  tick: "/sounds/tick.mp3",
+  reveal: "/sounds/reveal.mp3",
+};
+
+// In lobby component
+useEffect(() => {
+  Object.values(manifest).forEach((url) => {
+    new Howl({ src: [url], preload: true });
+  });
+}, []);
+```
+
+**Image preloading** (for reveal animations, player avatars):
+```tsx
+function preloadImages(urls: string[]): Promise<void[]> {
+  return Promise.all(
+    urls.map(
+      (url) =>
+        new Promise<void>((resolve) => {
+          const img = new Image();
+          img.onload = () => resolve();
+          img.onerror = () => resolve(); // Don't block on failures
+          img.src = url;
+        })
+    )
+  );
+}
+```
+
+**Loading indicator pattern:**
+Show preload progress on the Host screen during lobby. Use a simple counter:
+
+```tsx
+const [loaded, setLoaded] = useState(0);
+const total = Object.keys(manifest).length;
+
+// In lobby UI
+{loaded < total && (
+  <div className="text-sm text-slate-400">
+    Loading assets... {Math.round((loaded / total) * 100)}%
+  </div>
+)}
+```
+
+Never block game start on preloading — if assets fail to load, the game should still work (sounds are optional, images can lazy-load). The host screen should show "Loading..." but the VIP's "Start Game" button remains enabled.
