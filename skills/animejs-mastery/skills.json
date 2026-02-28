@@ -1,0 +1,10 @@
+{
+  "name": "animejs-mastery",
+  "description": "Anime.js v4 animation expert for building stunning web animations.\nCovers the complete API: animate(), createTimeline(), createScope(),\nonScroll(), createDraggable(), createLayout(), createAnimatable(),\nSVG utilities (morphTo, createDrawable, createMotionPath), splitText(),\nstagger(), spring physics, WAAPI integration, and production-ready\nwebsite animation recipes. Synthesizes official Anime.js v4 documentation\nand production animation patterns.\n\nTrigger phrases: \"anime.js\", \"animejs\", \"animate()\", \"createTimeline\",\n\"stagger\", \"spring animation\", \"SVG morphing\", \"SVG line drawing\",\n\"scroll animation\", \"onScroll\", \"text animation\", \"splitText\",\n\"draggable\", \"layout animation\", \"FLIP animation\", \"web animation\",\n\"hero animation\", \"page transition\", \"scroll reveal\", \"micro-interaction\",\n\"WAAPI\", \"keyframes\", \"easing function\", \"motion path\"",
+  "network": [],
+  "filesystem": {
+    "read": ["**/*"],
+    "write": []
+  },
+  "subprocess": false
+}
