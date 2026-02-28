@@ -1,4 +1,5 @@
 {
+  "name": "llm-app-patterns",
   "network": [],
   "filesystem": {
     "read": ["**/*"],
