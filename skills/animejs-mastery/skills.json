@@ -1,7 +1,7 @@
 {
   "name": "@tank/animejs-mastery",
   "version": "1.0.0",
-  "description": "Anime.js v4 animation expert for building stunning web animations. Covers the complete API: animate(), createTimeline(), createScope(), onScroll(), createDraggable(), createLayout(), createAnimatable(), SVG utilities (morphTo, createDrawable, createMotionPath), splitText(), stagger(), spring physics, WAAPI integration, and production-ready website animation recipes. Synthesizes official Anime.js v4 documentation and production animation patterns. Triggers: anime.js, animejs, animate(), createTimeline, stagger, spring animation, SVG morphing, SVG line drawing, scroll animation, onScroll, text animation, splitText, draggable, layout animation, FLIP animation, web animation, hero animation, page transition, scroll reveal, micro-interaction, WAAPI, keyframes, easing function, motion path.",
+  "description": "Anime.js v4 mastery: animate(), createTimeline(), onScroll(), createDraggable(), createLayout(), SVG morphTo/createDrawable/motionPath, splitText(), stagger(), spring, WAAPI, createScope(). Production recipes included. Triggers: anime.js, animejs, createTimeline, stagger, spring animation, SVG morphing, scroll animation, onScroll, splitText, draggable, FLIP animation, hero animation, page transition, scroll reveal, micro-interaction, WAAPI, keyframes, easing, motion path.",
   "permissions": {
     "network": { "outbound": [] },
     "filesystem": { "read": ["**/*"], "write": [] },
