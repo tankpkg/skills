@@ -309,3 +309,71 @@ process.on("SIGTERM", async () => {
 - **Latency Spikes**: Often caused by large state broadcasts. Optimize by sending deltas instead of full state objects.
 - **Connection Drops**: If players drop simultaneously, check the load balancer timeouts or Redis stability.
 - **CORS Errors**: Verify that the `CORS_ORIGIN` environment variable exactly matches the frontend URL including the protocol and port.
+
+## Room Forensics
+
+When a game session goes wrong — stuck phases, missing votes, phantom disconnects — the most useful debugging tool is a structured timeline of everything that happened in that room. Console logs are insufficient because they mix all rooms together and lack structure.
+
+### Event Timeline
+
+Attach a `Timeline` object to every room at creation. Log every significant event with player ID, phase, and timestamp. On game end (or crash), dump the timeline as structured JSON.
+
+```typescript
+const timeline = new Timeline(roomCode);
+
+// In event handlers:
+timeline.push("player:joined", { playerId, data: { name: player.name } });
+timeline.push("phase:started", { phase: "VOTING", data: { roundNumber: 3 } });
+timeline.push("submit:rejected", { playerId, phase: "INPUT", data: { reason: "PHASE_MISMATCH" } });
+timeline.push("error:caught", { data: { message: err.message, stack: err.stack } });
+```
+
+See `assets/room-timeline.ts` for the complete implementation with summary stats and tail queries.
+
+### Debug Endpoint
+
+Expose a `/admin/room/:code/timeline` endpoint behind authentication. Return the summary (total events, duration, player join/leave counts, error count) and the last N entries. This lets you diagnose stuck games in production without SSH-ing into the server.
+
+```typescript
+app.get("/admin/room/:code/timeline", authMiddleware, (req, res) => {
+  const room = rooms.get(req.params.code);
+  if (!room) return res.status(404).json({ error: "Room not found" });
+  res.json({
+    summary: room.timeline.summary(),
+    recent: room.timeline.tail(100),
+  });
+});
+```
+
+### What To Log
+
+| Event | When | Key Data |
+|-------|------|----------|
+| `room:created` | Room instantiated | config, maxPlayers |
+| `player:joined` / `player:left` | Socket join/leave | playerId, name |
+| `player:disconnected` / `player:reconnected` | Socket drop/restore | playerId, gracePeriod |
+| `vip:assigned` / `vip:transferred` | VIP changes | fromPlayerId, toPlayerId |
+| `phase:started` / `phase:ended` | State machine transitions | phaseName, phaseInstanceId |
+| `phase:timeout` | Timer expired before all submits | phaseName, missingPlayers |
+| `submit:accepted` / `submit:rejected` | Player submits answer/vote | playerId, reason (if rejected) |
+| `error:caught` | Unhandled error in room context | message, stack |
+
+### Memory Safety
+
+Cap the timeline at 10,000 entries per room (configurable). Typical games generate 200-500 events. If a room hits the cap, it indicates a runaway loop — log a warning and stop appending. Clear the timeline when the room is destroyed.
+
+### Production Integration
+
+In development, dump timelines to `console.log`. In production, pipe to a structured logging service (Loki, Datadog, etc.) at game end:
+
+```typescript
+function onGameEnd(room: Room) {
+  const dump = room.timeline.dump();
+  logger.info("game_timeline", dump);
+  rooms.delete(room.code);
+}
+```
+
+### Load Testing
+
+For smoke-testing server capacity before launch, use `assets/loadtest-socketio.ts`. It spawns N virtual players across M rooms, simulates submit and vote phases, and reports p50/p95/p99 latency for each event type. Run it against your staging server to catch memory leaks and latency regressions before real players hit them.

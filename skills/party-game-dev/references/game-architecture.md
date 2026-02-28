@@ -276,6 +276,60 @@ Support "Audience" roles for games played on stream (Twitch/YouTube).
 - **Threshold:** Set `maxPlayers` (e.g., 8). Any player joining after this is assigned `role: 'AUDIENCE'`.
 - **Filtering:** Use `room.players.filter(p => p.role === 'PLAYER')` for game logic and `room.players.filter(p => p.role === 'AUDIENCE')` for crowd-sourced voting.
 
+### Crowd Play and Stream Integration
+
+For Twitch/YouTube streaming, extend Audience Mode into a full "Crowd Play" system where chat viewers participate without joining the game room.
+
+**Architecture:**
+1. The Host screen (TV) runs on the streamer's machine and connects to the game server via Socket.IO as usual.
+2. A Twitch Extension or chat bot relays crowd votes to the game server via HTTP webhook.
+3. The game server aggregates crowd votes into a single "audience choice" during voting phases.
+
+**Twitch Extension approach:**
+```typescript
+// Twitch Extension backend — receives viewer votes via Twitch PubSub
+app.post("/twitch/vote", verifyTwitchJWT, (req, res) => {
+  const { roomCode, optionIndex, viewerId } = req.body;
+  const room = rooms.get(roomCode);
+  if (!room || room.phase !== "VOTING") return res.status(400).end();
+  room.crowdVotes.set(viewerId, optionIndex);
+  res.status(204).end();
+});
+```
+
+**Chat bot approach (simpler, no extension review):**
+- Bot watches chat for `!vote 1`, `!vote 2`, etc.
+- Tallies votes per viewer (one vote per viewer per round).
+- Sends aggregated result to game server when voting phase ends.
+
+**Aggregation:**
+```typescript
+function aggregateCrowdVotes(crowdVotes: Map<string, number>): number {
+  const tally = new Map<number, number>();
+  for (const option of crowdVotes.values()) {
+    tally.set(option, (tally.get(option) ?? 0) + 1);
+  }
+  let maxVotes = 0;
+  let winner = 0;
+  for (const [option, count] of tally) {
+    if (count > maxVotes) {
+      maxVotes = count;
+      winner = option;
+    }
+  }
+  return winner;
+}
+```
+
+**Host screen overlay:**
+Show crowd vote distribution as a live bar chart overlay on the Host screen during voting phases. Update every 2-3 seconds (not every vote — that creates too much visual noise).
+
+**Key constraints:**
+- Crowd votes should be weighted less than player votes (e.g., crowd = 1 player-equivalent vote total, regardless of crowd size).
+- Rate-limit webhook endpoint: max 1 vote per viewer per phase.
+- Clear `crowdVotes` map at the start of each voting phase.
+- Stream delay means crowd sees results 5-15 seconds late — design voting windows to be long enough (30+ seconds).
+
 ### Mobile UI Constraints
 Player controllers must be designed for mobile constraints.
 - **Viewport:** Use `100vh` carefully (or `-webkit-fill-available`) to handle mobile browser address bars.

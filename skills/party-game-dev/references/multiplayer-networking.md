@@ -415,13 +415,25 @@ server {
 | Volatile Emits | Use `volatile.emit()` | Prevents queue build-up on slow clients |
 | Compression | `perMessageDeflate: true` | Significant bandwidth savings for large state |
 
-### Summary Checklist
+## 8. Protocol Hardening
 
-- Initialize server with appropriate CORS and transports.
-- Use 4-character alphanumeric codes for room access, excluding ambiguous chars.
-- Implement a centralized `RoomManager` for lifecycle management.
-- Define a strictly typed event protocol for consistency and clarity.
-- Enforce server-authoritative state with selective broadcasting of private data.
-- Handle reconnections via persistent session identifiers stored in `socket.data`.
-- Protect the server with async error-handling wrappers for all event listeners.
-- Use a Redis adapter and sticky sessions when scaling horizontally.
+When deploying while games are in progress (or users have cached JS), mismatched event shapes cause ghost bugs: stuck phases, duplicated submits, silent failures. Wrap every client→server event in an envelope with version, dedup, and phase-guarding fields.
+
+Every `ClientEnvelope` carries: `protocolVersion` (bump on breaking changes), `clientSeq` (monotonic per player — dedup on reconnect), and `phaseInstanceId` (UUID generated each phase start — rejects stale submits). The server validates all three before processing the payload, and responds with a `ServerAck` containing `accepted`, `reason`, and `stateVersion`.
+
+Three guards run in order:
+1. **Version gate** — if `protocolVersion < MIN_SUPPORTED_VERSION`, reject and emit `force-refresh`.
+2. **Dedup** — if `clientSeq <= lastAckedSeq`, silently drop (replay from reconnection burst).
+3. **Phase guard** — if `phaseInstanceId !== room.currentPhaseInstanceId`, reject with `PHASE_MISMATCH`.
+
+### Compatibility Policy
+
+| Change | Action | Breaking? |
+|--------|--------|-----------|
+| Add optional field to event | Deploy freely | No |
+| Rename or remove field | Bump `protocolVersion`, add refresh gate | Yes |
+| Change field type | Bump `protocolVersion` | Yes |
+| Add new event name | Deploy freely | No |
+| Remove event name | Deprecate first, remove after one version | Yes |
+
+See `assets/protocol-envelope.ts` for the complete implementation with types, server processor, and client-side sender helper.
