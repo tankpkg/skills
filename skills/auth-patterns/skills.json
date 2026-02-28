@@ -1,7 +1,7 @@
 {
   "name": "@tank/auth-patterns",
   "version": "1.0.0",
-  "description": "Authentication and authorization patterns for any language or framework. JWT (structure, algorithms, attacks, validation), OAuth2 (Authorization Code, PKCE, Client Credentials, Device Code), session management (cookies, expiry, fixation), RBAC/ABAC/ReBAC (role modeling, authorization policies, Zanzibar), OpenID Connect and social login (ID tokens, account linking), MFA (TOTP, WebAuthn/passkeys, backup codes, step-up auth), and auth security (XSS/CSRF, token storage, credential stuffing, rate limiting). Triggers: JWT, OAuth2, session management, RBAC, ABAC, role-based access, OpenID Connect, OIDC, social login, MFA, multi-factor authentication, TOTP, WebAuthn, passkeys, refresh token, access token, PKCE, auth flow, implement authentication, cookie security, HttpOnly, SameSite, token storage, credential stuffing, account linking, backup codes, permission system.",
+  "description": "Auth patterns for any stack. JWT, OAuth2 (PKCE, Client Credentials, Device Code), sessions, RBAC/ABAC/ReBAC, OpenID Connect, social login, MFA (TOTP, WebAuthn/passkeys), and auth security (XSS/CSRF, token storage). Triggers: JWT, OAuth2, PKCE, session management, RBAC, ABAC, OIDC, social login, MFA, TOTP, WebAuthn, passkeys, refresh token, access token, implement auth, cookie security, HttpOnly, SameSite, credential stuffing, account linking, permission system.",
   "permissions": {
     "network": { "outbound": [] },
     "filesystem": { "read": ["**/*"], "write": [] },
