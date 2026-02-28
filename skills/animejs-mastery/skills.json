@@ -1,10 +1,11 @@
 {
-  "name": "animejs-mastery",
-  "description": "Anime.js v4 animation expert for building stunning web animations.\nCovers the complete API: animate(), createTimeline(), createScope(),\nonScroll(), createDraggable(), createLayout(), createAnimatable(),\nSVG utilities (morphTo, createDrawable, createMotionPath), splitText(),\nstagger(), spring physics, WAAPI integration, and production-ready\nwebsite animation recipes. Synthesizes official Anime.js v4 documentation\nand production animation patterns.\n\nTrigger phrases: \"anime.js\", \"animejs\", \"animate()\", \"createTimeline\",\n\"stagger\", \"spring animation\", \"SVG morphing\", \"SVG line drawing\",\n\"scroll animation\", \"onScroll\", \"text animation\", \"splitText\",\n\"draggable\", \"layout animation\", \"FLIP animation\", \"web animation\",\n\"hero animation\", \"page transition\", \"scroll reveal\", \"micro-interaction\",\n\"WAAPI\", \"keyframes\", \"easing function\", \"motion path\"",
-  "network": [],
-  "filesystem": {
-    "read": ["**/*"],
-    "write": []
+  "name": "@tank/animejs-mastery",
+  "version": "1.0.0",
+  "description": "Anime.js v4 animation expert for building stunning web animations. Covers the complete API: animate(), createTimeline(), createScope(), onScroll(), createDraggable(), createLayout(), createAnimatable(), SVG utilities (morphTo, createDrawable, createMotionPath), splitText(), stagger(), spring physics, WAAPI integration, and production-ready website animation recipes. Synthesizes official Anime.js v4 documentation and production animation patterns. Triggers: anime.js, animejs, animate(), createTimeline, stagger, spring animation, SVG morphing, SVG line drawing, scroll animation, onScroll, text animation, splitText, draggable, layout animation, FLIP animation, web animation, hero animation, page transition, scroll reveal, micro-interaction, WAAPI, keyframes, easing function, motion path.",
+  "permissions": {
+    "network": { "outbound": [] },
+    "filesystem": { "read": ["**/*"], "write": [] },
+    "subprocess": false
   },
-  "subprocess": false
+  "repository": "https://github.com/tankpkg/skills"
 }
