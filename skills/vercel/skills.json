@@ -1,0 +1,11 @@
+{
+  "name": "@tank/vercel",
+  "version": "1.0.0",
+  "description": "Vercel deployment and project management using the CLI. Covers all CLI commands (deploy, build, dev, pull, env, domains, dns, logs, promote, rollback), vercel.json configuration (redirects, rewrites, headers, functions, crons, images, regions), CI/CD workflows (GitHub Actions, GitLab CI, preview/production), environment variable management, domain and DNS setup, serverless and edge functions, and troubleshooting. Synthesizes Vercel CLI docs (2026), vercel.json schema, and production deployment patterns. Triggers: vercel, vercel deploy, vercel cli, vercel build, vercel dev, vercel pull, vercel env, vercel domains, vercel dns, vercel logs, vercel promote, vercel rollback, vercel.json, deployment, preview deployment, production deployment, CI/CD vercel, serverless function, edge function, cron job vercel, vercel monorepo, vercel turborepo.",
+  "permissions": {
+    "network": { "outbound": [] },
+    "filesystem": { "read": ["**/*"], "write": [] },
+    "subprocess": false
+  },
+  "repository": "https://github.com/tankpkg/skills"
+}
