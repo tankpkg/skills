@@ -1,7 +1,7 @@
 {
   "name": "@tank/vector-graphics-gen",
   "version": "0.0.1",
-  "description": "Generate vector graphics (SVG) for websites and apps using AI APIs. Primary platform: fal.ai with Recraft V3/V4 for native SVG generation, plus image-to-SVG conversion. Covers text-to-vector generation, image vectorization, prompt engineering for clean vector output, SVG optimization (SVGO), and web integration patterns (React, Vue, sprites, dark mode). Synthesizes fal.ai documentation, Recraft AI documentation, SVGO docs, and SVG specification.\n\nTrigger phrases: \"vector graphic\", \"generate SVG\", \"SVG icon\", \"vector illustration\", \"AI vector\", \"fal.ai\", \"FAL_KEY\", \"recraft\", \"recraft v3\", \"recraft v4\", \"text to SVG\", \"image to SVG\", \"vectorize image\", \"SVG generation\", \"vector logo\", \"AI illustration\", \"icon generation\", \"SVG for web\", \"vector art API\", \"fal-ai/recraft\", \"generate icon\", \"web illustration\", \"SVG background\", \"vector pattern\", \"clean SVG\", \"production SVG\", \"vector_illustration\", \"text-to-vector\"",
+  "description": "Generate vector graphics (SVG) using AI APIs. fal.ai with Recraft V3/V4 for native SVG, image-to-SVG conversion, prompt engineering, SVGO optimization, and web integration (React, Vue, sprites, dark mode).\n\nTrigger phrases: \"generate SVG\", \"SVG icon\", \"vector illustration\", \"fal.ai\", \"recraft\", \"text to SVG\", \"image to SVG\", \"vectorize\", \"vector logo\", \"icon generation\", \"SVG for web\", \"fal-ai/recraft\", \"vector pattern\", \"production SVG\", \"text-to-vector\"",
   "permissions": {
     "network": {
       "outbound": ["fal.ai", "queue.fal.run", "fal.run", "v3.fal.media", "fal.media"]
