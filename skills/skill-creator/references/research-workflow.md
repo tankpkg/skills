@@ -225,6 +225,20 @@ Read /tmp/{skill-name}-research/02-deployment.md
 
 Decouples research (high context) from writing (focused synthesis).
 
+### Step 7b — Identify Bundleable Work
+
+Before planning structure, review examples from Step 3 for patterns:
+
+| Signal | Action |
+|--------|--------|
+| 3+ examples need same helper code | Bundle in `scripts/` |
+| Multi-step automation with fixed sequence | Bundle in `scripts/` |
+| Deterministic file operations | Bundle in `scripts/` |
+| Flexible, context-dependent code | Keep as instructions |
+
+If the same code would be reinvented per invocation, write it once and
+put it in `scripts/`. This saves every future run from rebuilding.
+
 ## Phase 2: Plan Structure
 
 ### Step 8 — Plan Reference Files
@@ -344,6 +358,21 @@ git push
 bash install.sh
 bash install.sh status
 ```
+
+## Phase 4.5: Evaluate & Iterate
+
+After deploying a draft, evaluate before considering the skill complete.
+See `references/evaluation-workflow.md` for the full process:
+
+1. Create 3-5 realistic test prompts
+2. Run with-skill and without-skill (baseline) comparisons
+3. Grade results against assertions
+4. Get human review and feedback
+5. Improve the skill based on findings
+6. Repeat until satisfied
+
+Do NOT skip evaluation. Skills that aren't tested are skills that don't
+work. Run `scripts/quick_validate.py` before deploying.
 
 ## Phase 5: Iterate
 

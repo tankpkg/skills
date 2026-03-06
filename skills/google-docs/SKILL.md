@@ -1,3 +1,8 @@
+---
+name: "@tank/google-docs"
+description: "Create, edit, format, and collaborate on Google Docs programmatically. Covers document creation, batch updates, text manipulation with character indexes, paragraph styling, table operations, inline images, headers/footers, sharing permissions, and export to PDF/DOCX. Triggers: google docs, document, create document, edit document, format text, batch update, paragraph style, table, export PDF, share document, comments, Google Docs API."
+---
+
 # Google Docs
 
 Create, edit, format, and collaborate on Google Docs programmatically.

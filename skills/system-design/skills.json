@@ -1,10 +1,17 @@
 {
   "name": "@tank/system-design",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Practical system design for distributed systems. Scalability, load balancing, sharding, replication, caching, messaging (Kafka, CQRS, saga), reliability (circuit breakers, rate limiting), service architecture (microservices, API gateway), capacity planning and SLOs. Triggers: system design, distributed systems, scalability, load balancing, sharding, caching, message queue, Kafka, circuit breaker, rate limiting, microservices, API gateway, CAP theorem, CQRS, saga, SLO, capacity planning.",
   "permissions": {
-    "network": { "outbound": [] },
-    "filesystem": { "read": ["**/*"], "write": [] },
+    "network": {
+      "outbound": []
+    },
+    "filesystem": {
+      "read": [
+        "**/*"
+      ],
+      "write": []
+    },
     "subprocess": false
   },
   "repository": "https://github.com/tankpkg/skills"

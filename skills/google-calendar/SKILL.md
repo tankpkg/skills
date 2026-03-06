@@ -1,3 +1,8 @@
+---
+name: "@tank/google-calendar"
+description: "Create, query, update, and manage Google Calendar events and availability. Covers event CRUD, free/busy queries, recurring events with RRULE, Google Meet conferencing, attendee management, multi-calendar operations, and incremental sync. Triggers: calendar, event, meeting, schedule, availability, free busy, recurring event, RRULE, Google Meet, attendee, reminder, timezone, booking, appointment, Google Calendar."
+---
+
 # Google Calendar
 
 Create, query, update, and manage Google Calendar events, schedules, and availability.

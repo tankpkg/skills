@@ -1,10 +1,17 @@
 {
   "name": "@tank/nextjs",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Next.js 14/15 App Router patterns. Covers Server vs Client Components, data fetching (server actions, route handlers), caching hierarchy, streaming SSR, parallel/intercepting routes, middleware, and deployment. Triggers: nextjs, next.js, app router, server component, client component, server action, route handler, middleware, SSR, SSG, ISR, caching, revalidation, streaming, suspense, parallel routes, intercepting routes, next/image, metadata, layout.",
   "permissions": {
-    "network": { "outbound": [] },
-    "filesystem": { "read": ["**/*"], "write": [] },
+    "network": {
+      "outbound": []
+    },
+    "filesystem": {
+      "read": [
+        "**/*"
+      ],
+      "write": []
+    },
     "subprocess": false
   },
   "repository": "https://github.com/tankpkg/skills"

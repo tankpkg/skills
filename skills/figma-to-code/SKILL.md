@@ -1,5 +1,5 @@
 ---
-name: figma-to-code
+name: "@tank/figma-to-code"
 description: |
   Use when implementing UI from Figma designs with pixel-perfect fidelity.
   Covers the complete Figma-to-code pipeline: extracting design specs via

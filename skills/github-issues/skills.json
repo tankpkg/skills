@@ -1,0 +1,20 @@
+{
+  "name": "@tank/github-issues",
+  "version": "0.1.0",
+  "description": "GitHub Issues expert via gh CLI. Full issue lifecycle, templates/forms (.yml/.md), search, labels/milestones/Projects v2, gh api scripting, bulk ops, Actions automation, issue-driven development. Triggers: github issue, gh issue, issue template, issue form, create issue, close issue, triage, label, milestone, stale issues, bulk close, search issues, ISSUE_TEMPLATE, config.yml, issue-driven development, gh search issues, gh label, sub-issues, gh issue develop.",
+  "permissions": {
+    "network": {
+      "outbound": []
+    },
+    "filesystem": {
+      "read": [
+        "**/*"
+      ],
+      "write": [
+        ".github/**"
+      ]
+    },
+    "subprocess": true
+  },
+  "repository": "https://github.com/tankpkg/skills"
+}

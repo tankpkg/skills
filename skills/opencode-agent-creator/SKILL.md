@@ -1,5 +1,5 @@
 ---
-name: opencode-agent-creator
+name: "@tank/opencode-agent-creator"
 description: |
   Create specialized OpenCode agents that assume specific roles — frontend
   architect, DevOps SRE, database specialist, code reviewer, or any domain

@@ -1,5 +1,5 @@
 ---
-name: planning
+name: "@tank/planning"
 description: |
   Comprehensive planning methodology for complex software tasks. Covers task
   decomposition (WBS, micro-tasks), plan writing (zero-context specs), plan

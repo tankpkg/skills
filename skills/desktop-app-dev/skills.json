@@ -1,10 +1,17 @@
 {
   "name": "@tank/desktop-app-dev",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Build and ship cross-platform desktop apps from web projects using Electron, Tauri v2, or Wails. Covers framework selection, IPC, native APIs (menus, tray, dialogs), packaging, code signing, auto-update, and migration. Triggers: Electron, Tauri, Wails, desktop app, web to desktop, electron-builder, electron-vite, tauri command, system tray, auto-update, code signing, DMG, MSI, AppImage, IPC, preload script, BrowserWindow, wails build, desktop wrapper, ship desktop app.",
   "permissions": {
-    "network": { "outbound": [] },
-    "filesystem": { "read": ["**/*"], "write": [] },
+    "network": {
+      "outbound": []
+    },
+    "filesystem": {
+      "read": [
+        "**/*"
+      ],
+      "write": []
+    },
     "subprocess": false
   },
   "repository": "https://github.com/tankpkg/skills"

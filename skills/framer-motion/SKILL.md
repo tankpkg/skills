@@ -1,5 +1,5 @@
 ---
-name: framer-motion
+name: "@tank/framer-motion"
 description: |
   Motion for React (formerly Framer Motion) animation mastery. Covers the
   complete API: motion component, AnimatePresence, layout animations, spring

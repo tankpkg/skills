@@ -1,10 +1,17 @@
 {
   "name": "@tank/llm-app-patterns",
-  "version": "1.0.0",
-  "description": "Build production-grade LLM apps — RAG, tool use, structured output, streaming, cost optimization. Triggers: RAG, retrieval-augmented generation, vector search, chunking, embedding, tool use, function calling, agent, structured output, JSON mode, Instructor, streaming, SSE, LLM cost, model routing, semantic cache, LLM evaluation, LLM-as-judge, RAGAS, hallucination, LLM in production.",
+  "version": "1.1.0",
+  "description": "Build production-grade LLM apps \u2014 RAG, tool use, structured output, streaming, cost optimization. Triggers: RAG, retrieval-augmented generation, vector search, chunking, embedding, tool use, function calling, agent, structured output, JSON mode, Instructor, streaming, SSE, LLM cost, model routing, semantic cache, LLM evaluation, LLM-as-judge, RAGAS, hallucination, LLM in production.",
   "permissions": {
-    "network": { "outbound": [] },
-    "filesystem": { "read": ["**/*"], "write": [] },
+    "network": {
+      "outbound": []
+    },
+    "filesystem": {
+      "read": [
+        "**/*"
+      ],
+      "write": []
+    },
     "subprocess": false
   },
   "repository": "https://github.com/tankpkg/skills"

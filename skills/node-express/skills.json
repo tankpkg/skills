@@ -1,10 +1,17 @@
 {
   "name": "@tank/node-express",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Production Node.js and Express patterns for API servers. Covers middleware, async error handling, validation, authentication (JWT, session), database integration, graceful shutdown, and logging. Triggers: node, express, API server, middleware, REST API, backend, endpoint, route handler, authentication, JWT, rate limiting, error handling, request validation, graceful shutdown, Node.js, Express.js.",
   "permissions": {
-    "network": { "outbound": [] },
-    "filesystem": { "read": ["**/*"], "write": [] },
+    "network": {
+      "outbound": []
+    },
+    "filesystem": {
+      "read": [
+        "**/*"
+      ],
+      "write": []
+    },
     "subprocess": false
   },
   "repository": "https://github.com/tankpkg/skills"

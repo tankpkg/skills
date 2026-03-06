@@ -1,3 +1,8 @@
+---
+name: "@tank/notion"
+description: "Query, create, and update Notion pages, databases, and blocks through the Notion API. Covers database CRUD with typed properties (select, relation, rollup, formula), compound filters, page content as block trees, search across workspaces, and pagination patterns. Triggers: notion, database, page, block, query, filter, property, relation, rollup, block tree, Notion API, workspace, toggle, callout, create page, update page."
+---
+
 # Notion
 
 Query, create, and update Notion pages, databases, and blocks through the Notion API.
