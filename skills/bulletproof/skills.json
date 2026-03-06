@@ -1,0 +1,22 @@
+{
+  "name": "@tank/bulletproof",
+  "version": "1.0.0",
+  "description": "Build it right, prove it works, ship with confidence. Combines intent-driven development (@tank/idd) with real-system E2E testing (@tank/bdd-e2e-testing) so nothing ships without being defined and verified against real dependencies. No mocks. No guessing. Triggers: bulletproof, ship with confidence, intent and testing, define and verify, intent to tests, verified development, build right ship fast, no mocks, real system testing, full development workflow, intent verified.",
+  "skills": {
+    "@tank/idd": "^1.0.0",
+    "@tank/bdd-e2e-testing": "^1.1.0"
+  },
+  "permissions": {
+    "network": {
+      "outbound": []
+    },
+    "filesystem": {
+      "read": [
+        "**/*"
+      ],
+      "write": []
+    },
+    "subprocess": false
+  },
+  "repository": "https://github.com/tankpkg/skills"
+}

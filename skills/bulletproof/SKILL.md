@@ -1,24 +1,25 @@
 ---
-name: "@tank/idd-bdd-pack"
+name: "@tank/bulletproof"
 description: |
-  Orchestrator pack combining Intent-Driven Development (IDD) with BDD
-  end-to-end testing. Installs both @tank/idd and @tank/bdd-e2e-testing,
-  then provides the bridge workflow for using .idd/ and .bdd/ folders
-  together. Does not stand alone — requires both dependencies.
+  Build it right, prove it works, ship with confidence. Combines
+  intent-driven development (@tank/idd) with real-system E2E testing
+  (@tank/bdd-e2e-testing). Nothing ships without being defined first
+  and verified against real dependencies. No mocks. No guessing.
 
-  Trigger phrases: "IDD BDD", "intent and behavior", "intent to BDD",
-  "BDD from intent", "intent verified testing", "intent behavior pack",
-  "combine IDD BDD", "IDD BDD orchestrator", "intent driven BDD",
-  "intent plus BDD", "full testing workflow", ".idd .bdd together"
+  Trigger phrases: "bulletproof", "ship with confidence",
+  "intent and testing", "define and verify", "intent to tests",
+  "verified development", "build right ship fast", "no mocks",
+  "real system testing", "full development workflow", "intent verified"
 ---
 
-# IDD + BDD Orchestration
+# Bulletproof
 
-This pack does not teach IDD or BDD. It teaches how to use them together.
+Build it right. Prove it works. Ship it.
 
-For IDD methodology, load `@tank/idd`.
-For BDD testing, load `@tank/bdd-e2e-testing`.
-This pack installs both and adds the bridge.
+This pack combines intent-driven development with real-system E2E testing.
+You define what the software must do (`@tank/idd`), then prove it actually
+does it against real dependencies (`@tank/bdd-e2e-testing`). Nothing gets
+through without both halves.
 
 ## Why Combine Them
 
