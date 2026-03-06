@@ -1,5 +1,5 @@
 ---
-name: tank-project-setup
+name: "@tank/tank-project-setup"
 description: |
   Auto-detect project stack and integrate Tank skills into any repository.
   Scans for framework indicators (package.json, pyproject.toml, angular.json,

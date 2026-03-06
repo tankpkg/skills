@@ -1,3 +1,8 @@
+---
+name: "@tank/bdd-e2e-testing"
+description: "BDD end-to-end testing against real systems. Covers web apps (Playwright), libraries (pytest-bdd + Docker), APIs, CLIs, message queues. Gherkin writing, step definitions, Page Objects, Screenplay, 3-layer architecture, CI/CD, multi-language (TypeScript, Python, Java, .NET). Triggers: BDD test, Gherkin, Cucumber, feature file, Given When Then, playwright-bdd, pytest-bdd, Behave, Cucumber-JVM, Serenity BDD, Reqnroll, Example Mapping, Three Amigos, living documentation, BDD setup, BDD architecture."
+---
+
 # BDD E2E Testing
 
 ## Hard Rules

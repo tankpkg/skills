@@ -1,3 +1,8 @@
+---
+name: "@tank/tdd-workflow"
+description: "Test-Driven Development: RED-GREEN-REFACTOR cycle, three laws of TDD, test-first patterns, and practical workflows. Covers test doubles, testing pyramids, property-based testing, and mutation testing. Triggers: TDD, test-driven development, red green refactor, test first, unit test, failing test, test double, mock, stub, spy, test pyramid, property-based testing, mutation testing, test coverage, testing strategy, write tests."
+---
+
 # TDD Workflow
 
 > Write tests first, code second.

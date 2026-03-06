@@ -1,10 +1,17 @@
 {
   "name": "@tank/vercel",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Vercel deployment and project management via CLI. Covers deploy, build, dev, env, domains, dns, logs, promote, rollback. vercel.json config (redirects, rewrites, headers, functions, crons, regions). CI/CD patterns (GitHub Actions, GitLab CI). Env var management, serverless/edge functions, troubleshooting. Triggers: vercel, vercel deploy, vercel cli, vercel build, vercel dev, vercel env, vercel domains, vercel.json, deployment, CI/CD vercel, serverless function, edge function, vercel monorepo.",
   "permissions": {
-    "network": { "outbound": [] },
-    "filesystem": { "read": ["**/*"], "write": [] },
+    "network": {
+      "outbound": []
+    },
+    "filesystem": {
+      "read": [
+        "**/*"
+      ],
+      "write": []
+    },
     "subprocess": false
   },
   "repository": "https://github.com/tankpkg/skills"

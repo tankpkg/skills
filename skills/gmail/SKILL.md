@@ -1,3 +1,8 @@
+---
+name: "@tank/gmail"
+description: "Send, read, search, label, and manage email through the Gmail API. Covers composing (plain text, HTML, attachments), thread-aware replies, Gmail search query syntax (from:, to:, has:attachment, after:), label management, filter automation, and draft workflows. Triggers: gmail, email, send email, read email, search email, attachment, label, filter, thread, draft, Gmail API, compose, reply, forward, inbox, MIME."
+---
+
 # Gmail
 
 Send, read, search, label, and manage email through the Gmail API.

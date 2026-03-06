@@ -1,10 +1,17 @@
 {
   "name": "@tank/clean-code",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Reusable, modular, performant, readable code via KISS, SOLID, and pragmatic design. Covers code smells, refactoring, KISS/YAGNI, modularity (coupling, cohesion), performance (N+1, data structures, caching), readability (cognitive load). Synthesizes Martin, Ousterhout, Fowler, Metz, Hickey, Beck. Triggers: clean code, refactor, code smell, code review, KISS, SOLID, DRY, YAGNI, over-engineered, simplify, coupling, cohesion, reusable, performance, readability, cognitive load, technical debt, N+1.",
   "permissions": {
-    "network": { "outbound": [] },
-    "filesystem": { "read": ["**/*"], "write": [] },
+    "network": {
+      "outbound": []
+    },
+    "filesystem": {
+      "read": [
+        "**/*"
+      ],
+      "write": []
+    },
     "subprocess": false
   },
   "repository": "https://github.com/tankpkg/skills"

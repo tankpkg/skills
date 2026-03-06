@@ -1,5 +1,5 @@
 ---
-name: skill-creator
+name: "@tank/skill-creator"
 description: |
   Create skills that extend AI agent capabilities with synthesized domain expertise.
   Covers skill anatomy, progressive disclosure, research workflow (books + web),
@@ -31,6 +31,8 @@ knowledge from authoritative books, web research, and reusable resources.
 7. **Write your own work** — Read existing skills freely to learn what
    works (structure, length, patterns). But always write your own content
    from your own research. Never copy-paste text from other skills.
+8. **Explain the why** — Reasoning beats rigid rules. LLMs understand
+   intent; MUST/NEVER in all caps is a yellow flag. Reframe as reasoning.
 
 ## Skill Anatomy
 
@@ -51,6 +53,8 @@ skill-name/
 2. Add 10-15 trigger phrases covering user phrasings
 3. Include specific file types, tools, tasks in description
 4. The body loads AFTER triggering — "When to Use" sections are wasted
+5. Make description slightly "pushy" — Claude tends to under-trigger
+6. Test with `references/evaluation-workflow.md` trigger eval queries
 
 ### "Agent gives generic advice"
 
@@ -91,6 +95,18 @@ skill-name/
 
 1. **Write reference files** — Parallel agents, books as primary source
 2. **Verify** — Format, length, sources, no overlap
+
+### Phase 3.5: Evaluate & Iterate
+
+1. **Create test cases** — 3-5 realistic prompts + assertions
+2. **Run with/without skill** — Baseline comparison via delegation
+3. **Grade results** — Use `references/quality-agents.md` grader
+4. **Human review** — Get feedback on output quality
+5. **Improve and repeat** — Fix issues, rerun until satisfied
+6. **Optimize description** — Test trigger accuracy with eval queries
+7. **Validate** — Run `scripts/quick_validate.py`
+
+See `references/evaluation-workflow.md` for detailed procedures.
 
 ### Phase 4: Deploy
 
@@ -159,6 +175,8 @@ Only add permissions when actually needed.
 | File | Contents |
 |------|----------|
 | `references/skill-design-patterns.md` | Context window principle, degrees of freedom, progressive disclosure, resource types, SKILL.md patterns, what NOT to include |
-| `references/research-workflow.md` | Scope definition, ecosystem study, book research, Anna's Archive, framework extraction, scratch file protocol, parallel writing delegation |
-| `references/writing-conventions.md` | Frontmatter rules, body structure, reference file format, quality standards, completion checklist |
+| `references/research-workflow.md` | Scope definition, ecosystem study, book research, framework extraction, scratch file protocol, parallel writing delegation |
+| `references/writing-conventions.md` | Frontmatter rules, body structure, reference file format, quality standards, instruction philosophy, completion checklist |
 | `references/ecosystem-patterns.md` | skills.sh leaderboard analysis, top publisher patterns, tank-skills conventions, supported agents |
+| `references/evaluation-workflow.md` | Test case creation, grading, iteration loop, description optimization, evaluation schemas |
+| `references/quality-agents.md` | Grader and blind comparator agent prompts, delegation templates, output schemas |

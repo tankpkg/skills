@@ -1,5 +1,5 @@
 ---
-name: tank-package-publisher
+name: "@tank/tank-package-publisher"
 description: Package lifecycle specialist for Tank directory publishing. Use when users ask to publish a skill to Tank, run tank publish, fix publish failures, validate skills.json, bump versions, or verify releases. Handles dry-run-first workflow, manifest validation, and publish error remediation.
 ---
 

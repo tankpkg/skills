@@ -1,3 +1,8 @@
+---
+name: "@tank/figma-plugin"
+description: "Guidance for building Figma plugins. Covers architecture, Plugin API (nodes, styles, variables, components), UI development, Dev Mode codegen, widgets, publishing, and monetization. Triggers: figma plugin, figma API, plugin development, figma widget, Dev Mode, codegen, figma node, figma styles, figma variables, iframe, message passing, plugin UI, figma publish, figma marketplace."
+---
+
 # Figma Plugin Development
 
 Expert guidance for building Figma plugins — from architecture and API usage

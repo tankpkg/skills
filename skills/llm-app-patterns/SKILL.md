@@ -1,5 +1,5 @@
 ---
-name: llm-app-patterns
+name: "@tank/llm-app-patterns"
 description: |
   Build production-grade LLM-powered applications — RAG systems, tool-using
   agents, structured output extraction, streaming responses, and cost

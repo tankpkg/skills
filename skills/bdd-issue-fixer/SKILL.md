@@ -1,5 +1,5 @@
 ---
-name: bdd-issue-fixer
+name: "@tank/bdd-issue-fixer"
 description: |
   Resolve GitHub issues using BDD — read the issue, write a behavioral test,
   confirm it fails (RED), fix the code, confirm it passes (GREEN), open a PR

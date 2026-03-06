@@ -164,6 +164,42 @@ When overlap possible, assign to one file and cross-reference:
 For pricing conversion patterns, see `references/pricing.md`.
 ```
 
+## Instruction Writing Philosophy
+
+### Explain the Why, Not Just the What
+
+Today's LLMs are smart. They have good theory of mind. Explaining WHY
+something matters is more effective than rigid MUST/NEVER rules:
+
+| Rigid Rule (Weak) | Reasoning (Strong) |
+|-------------------|---------------------|
+| "ALWAYS use ISO 8601 dates" | "Use ISO 8601 — downstream parsers expect this format" |
+| "NEVER use inline styles" | "Prefer CSS classes — inline styles break when themes change" |
+| "MUST validate all inputs" | "Validate inputs to prevent silent corruption of downstream state" |
+
+If you find yourself writing ALWAYS or NEVER in all caps, reframe as
+reasoning so the agent understands the principle, not just the rule.
+
+### Keep the Prompt Lean
+
+Read transcripts from test runs, not just final outputs. If the skill
+makes the agent waste time on unproductive steps, remove the instructions
+causing that. Every line must justify its token cost.
+
+### Generalize, Don't Overfit
+
+Skills will be used across many prompts. When improving based on test
+feedback, think about the CATEGORY of failure, not the specific instance.
+Fiddly changes that only fix specific test examples are worthless.
+
+### Audience Awareness
+
+Adapt terminology to the user's technical level:
+
+- Technical users → use precise terms freely
+- Non-technical → briefly define jargon on first use
+- Uncertain → err toward brief explanations
+
 ## Style Reference
 
 Read existing skill before writing:
@@ -204,6 +240,14 @@ Read BEFORE writing. Do not rely on memory.
 - [ ] Content written from own research, not lifted from existing skills
 - [ ] Professional tone, imperative form
 - [ ] Tables for frameworks/comparisons
+
+### Evaluation
+
+- [ ] 3-5 realistic test prompts created
+- [ ] With/without skill baseline comparison run
+- [ ] Assertions graded (or human review completed)
+- [ ] Description triggers tested with should/shouldn't queries
+- [ ] Run `scripts/quick_validate.py` — all checks pass
 
 ### Deployment
 

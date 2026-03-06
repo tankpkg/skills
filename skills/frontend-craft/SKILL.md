@@ -1,5 +1,5 @@
 ---
-name: frontend-craft
+name: "@tank/frontend-craft"
 description: |
   Expert frontend craft for building apps that make users go "wow, this is
   fast and easy." Covers micro-interactions, perceived performance, premium

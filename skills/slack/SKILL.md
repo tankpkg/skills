@@ -1,3 +1,8 @@
+---
+name: "@tank/slack"
+description: "Send messages, manage channels, search conversations, and automate workflows in Slack. Covers messaging (threads, ephemeral, scheduled), Block Kit (sections, buttons, select menus, modals), channel management, file uploads, user lookups, and mrkdwn formatting. Triggers: slack, message, channel, thread, Block Kit, modal, button, select menu, mrkdwn, emoji, file upload, search, DM, ephemeral, Slack API, webhook, bot."
+---
+
 # Slack
 
 Send messages, manage channels, search conversations, and automate workflows in Slack.
